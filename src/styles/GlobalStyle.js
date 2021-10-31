@@ -16,6 +16,9 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    p{
+        cursor: default;
+    }
     a{
         text-decoration: none;
         color: inherit;

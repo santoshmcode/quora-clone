@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router";
+import { Login } from "../components";
 
 const Router = () => {
     return (
         <Switch>
             <Route path="/login">
-                <h1>Login Page</h1>
+                <Login />
             </Route>
         </Switch>
     );
