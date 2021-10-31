@@ -1,6 +1,57 @@
 import styled from "styled-components";
+import { useState } from "react";
+import {
+    auth,
+    googleProvider,
+    facebookProvider,
+} from "../../config/firebase.config";
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLoginWithGoogle = async () => {
+        try {
+            await auth.signInWithPopup(googleProvider);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleLoginWithFacebook = async () => {
+        try {
+            await auth.signInWithPopup(facebookProvider);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            setPassword("");
+            setEmail("");
+        } catch (error) {
+            console.log(error);
+            setPassword("");
+        }
+    };
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await auth.createUserWithEmailAndPassword(
+                email,
+                password
+            );
+            setPassword("");
+            setEmail("");
+        } catch (error) {
+            console.log(error);
+            setPassword("");
+        }
+    };
+
     return (
         <Container>
             <LoginForm>
@@ -20,7 +71,7 @@ const Login = () => {
                 </Logo>
                 <Form>
                     <LeftSection>
-                        <LoginWith>
+                        <LoginWith onClick={handleLoginWithGoogle}>
                             <svg
                                 width="24"
                                 height="24"
@@ -47,7 +98,7 @@ const Login = () => {
 
                             <p>Continue with Google</p>
                         </LoginWith>
-                        <LoginWith>
+                        <LoginWith onClick={handleLoginWithFacebook}>
                             <svg
                                 width="24"
                                 height="24"
@@ -77,19 +128,21 @@ const Login = () => {
                         <Input
                             type="text"
                             placeholder="Your Email"
-                            // value={email}
-                            // onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <Lable>Password</Lable>
                         <Input
                             type="password"
                             placeholder="Your Password"
-                            // value={password}
-                            // onChange={(e) => setPassword(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                         <SubContained>
                             <ForgotPassword>Forgot password?</ForgotPassword>
-                            <LoginButton>Login</LoginButton>
+                            <LoginButton type="submit" onClick={handleRegister}>
+                                Login
+                            </LoginButton>
                         </SubContained>
                     </RightSection>
                 </Form>
