@@ -14,6 +14,10 @@ export const PostPage = () => {
                     <div>India</div>
                     <EditOutlinedIcon></EditOutlinedIcon>
                 </div>
+
+                <div className="left-title">
+                    How is India Viewed From Outside?
+                </div>
             </div>
             
             <div>
