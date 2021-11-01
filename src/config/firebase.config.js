@@ -3,12 +3,12 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBrBGaIjWcE10iCrJSZEMNQFkPqsQAU5OM",
-    authDomain: "quora-c3737.firebaseapp.com",
-    projectId: "quora-c3737",
-    storageBucket: "quora-c3737.appspot.com",
-    messagingSenderId: "401750284768",
-    appId: "1:401750284768:web:1bf2696a0d5d5cee357385",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
