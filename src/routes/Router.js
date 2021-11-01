@@ -5,6 +5,7 @@ import { Login } from "../components";
 import { login, logout, selectUser } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../config/firebase.config";
+import { PostPage } from "../components/post-page/PostPage";
 
 const Router = () => {
     const user = useSelector(selectUser);
@@ -32,6 +33,9 @@ const Router = () => {
                 ) : (
                     <Login />
                 )}
+            </Route>
+            <Route exact path="/postPage">
+                <PostPage />
             </Route>
         </Switch>
     );
