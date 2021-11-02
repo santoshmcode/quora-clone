@@ -59,6 +59,7 @@
   grid-template-columns: 98px 98px 98px;
   gap: 2px;
 }
+
 .answer-icon > div {
   height: 38px;
 }
