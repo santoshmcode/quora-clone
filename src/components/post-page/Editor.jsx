@@ -20,7 +20,7 @@ export default class TextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    console.log((convertToRaw(editorState.getCurrentContent())));
     return (
       <div>
           <div className="edit-author-credentials">
@@ -39,13 +39,15 @@ export default class TextEditor extends Component {
           toolbarClassName="toolbarClassName"
           wrapperClassName="wrapperClassName"
           editorClassName="editorClassName"
-          onEditorStateChange={this.onEditorStateChange}
+          onEditorStateChange={this.onEditorStateChange} 
+          placeholder="Add Your Answer" 
         />
-        <textarea
-          disabled
-          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-        ></textarea>
-        <div className="post-answer">Post</div>
+        
+
+        <div className="button-edit">
+            <div className="post-answer">Post</div>
+            <div className="draft-answer">Save Draft</div>
+        </div>
       </div>
     );
   }
