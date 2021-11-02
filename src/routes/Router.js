@@ -6,6 +6,7 @@ import { login, logout, selectUser } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../config/firebase.config";
 import { PostPage } from "../components/post-page/PostPage";
+import { PostData } from "../components/dbTest/PostData";
 
 const Router = () => {
     const user = useSelector(selectUser);
@@ -36,6 +37,9 @@ const Router = () => {
             </Route>
             <Route exact path="/postPage">
                 <PostPage />
+            </Route>
+            <Route exact path="/dbTest">
+                <PostData />
             </Route>
         </Switch>
     );
