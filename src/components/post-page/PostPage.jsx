@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './PostPage.css';
 import {FiEdit2, FiRss} from 'react-icons/fi'
 import {AiOutlineScan} from 'react-icons/ai'
@@ -6,9 +6,20 @@ import {VscAccount} from 'react-icons/vsc'
 import {FaRegComment} from 'react-icons/fa'
 import {IoPersonOutline} from 'react-icons/io5'
 import {IoEllipsisHorizontalOutline, IoArrowRedoOutline, IoArrowDownSharp, IoOpenOutline} from 'react-icons/io5'
+import {RiUserFollowLine} from 'react-icons/ri';
 
 
 export const PostPage = () => {
+
+    const [display, setDisplay] = useState("none");
+    const [btn, setBtn] = useState("block")
+    
+
+    const handleDisplay = () => {
+        setDisplay("block");
+        setBtn("none");
+    }
+
     return (
 
     <div style={{width: '100%'}}>
@@ -66,10 +77,59 @@ export const PostPage = () => {
 
                 <hr />
 
+                <div className="left-answer-no">
+                    30 Answers
+                </div>
+
+                <hr />
+
+                <div className="answer-tag">
+                    <div className="answer-tag-left">
+                        <div>
+                            <img src="https://freesvg.org/img/Male-Avatar.png" />
+                        </div>
+                        <div className="author-tag">
+                            <div><span>Sumit Gupta</span>, Co-founder and CEO at CoinDCX</div>
+                            <div style={{fontSize:'13px'}}>Answered Apr 12</div>
+                        </div>
+                    </div>
+                    <div className="answer-tag-right">
+                         <div>
+                            <RiUserFollowLine></RiUserFollowLine>
+                        </div>
+                    </div>
+                </div>
+
+                 <div>
+                        A cryptocurrency or crypto is a digital currency and you can think of it as a digital dollar or digital INR as instead of paper money, it uses an online ledger for transactions. They provide a medium of exchange and allow individuals to directly make payments to each other.
+
+                        <br/><br/>Bitcoin is a type of cryptocurrency, and is a digital form of cash that was invented in 2009 by an entity called Satoshi Nakamoto. How cryptocurrency works is on a technology called Blockchain which provides a peer-to-peer network and transactions are recorded on the blocks of the blockchain.
+
+                        <br/><br/><span style={{display: btn}}>The decentralized nature of...<button onClick={handleDisplay} style={{textDecoration: 'underline'}}>more</button></span>
+                </div>
+
+                <div style={{display: display}}>
+                    The decentralized nature of the blockchain makes cryptocurrencies immune to the old ways of government control and interference. Transactions are secured as the technology uses cryptography and are validated using a consensus mechanism such as Proof-of-stake. Various computers that are connected to a blockchain verify transactions on the network using these consensus mechanisms.
+
+Upon successful verification of transactions, these transactions are grouped and chained together as blocks in the blockchain. This process of creating new blocks is known as mining and the people doing it are called miners. Miners are rewarded for their effort and resources spent on mining, in the form of crypto paybacks. Hence, the technology provides an incentive for people to maintain the blockchain and establish its authenticity.
+                    <img src="https://qphs.fs.quoracdn.net/main-qimg-d2cc101eedb9805d6d2471296791bd16" width="100%" />
+                    Source: MLSDev
+                    The technology is such that it provides:
+                    <ul>
+                        <li>Transparency of transaction data</li>
+                        <li>Faster transfer of payments</li>
+                    </ul>
+                    
+                    
+                    Lower transaction costs
+                    Secure payments
+                </div>
+
+
             </div>
             
             <div className="outer-right">
-
+               
             </div>
         </div>
     </div>
