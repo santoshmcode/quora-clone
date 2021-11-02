@@ -5,7 +5,31 @@
   background-color: blue;
   border-radius: 50px;
   text-align: center;
-  padding: auto;
+  padding-top: 3px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+.post-answer,
+.draft-answer:hover {
+  cursor: pointer;
+}
+.draft-answer {
+  width: 90px;
+  height: 30px;
+  color: rgb(71, 70, 70);
+  background-color: rgb(188, 188, 194);
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 3px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+.button-edit {
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .edit-author-credentials {
