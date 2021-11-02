@@ -8,6 +8,7 @@ import {IoPersonOutline} from 'react-icons/io5'
 import {IoEllipsisHorizontalOutline, IoArrowRedoOutline, IoArrowDownSharp, IoOpenOutline} from 'react-icons/io5'
 import {RiUserFollowLine} from 'react-icons/ri';
 import Editor from './Editor'
+import { Sidebar } from './sidebar/Sidebar';
 
 
 export const PostPage = () => {
@@ -142,8 +143,9 @@ Upon successful verification of transactions, these transactions are grouped and
             </div>
             
             <div className="outer-right">
-               
+                <Sidebar />
             </div>
+
         </div>
     </div>
     )
