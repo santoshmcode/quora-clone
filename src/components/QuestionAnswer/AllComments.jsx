@@ -32,11 +32,11 @@ export const AllComments = () => {
 
 const AllComment = styled.div`
 width: 100%;
-margin:2rem auto;
-/* border:1px solid grey; */
+margin:2rem auto 0rem;
+border-bottom:.5px solid rgb(222,224,225);
     .header{
         padding-top: .5rem;
-        padding-bottom: .5rem;
+        padding-bottom: 0rem;
         padding-left: 1rem;
         display: flex;
         .user{

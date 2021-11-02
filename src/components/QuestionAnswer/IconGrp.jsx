@@ -4,15 +4,23 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import { BiDotsHorizontalRounded, BiMessageRounded } from "react-icons/bi";
 import { RiShareForwardLine } from "react-icons/ri";
 import { MyComment } from "./MyComment";
-import { GoArrowDown} from "react-icons/go";
-export const IconGrp = () => {
+import { GoArrowUp} from "react-icons/go";
+import { useState } from "react";
+export const IconGrp = ({handleComments,id,showComments,toogle}) => {
+    const [upvotes, setUpvotes] = useState(false);
+    const handleClick = () => {
+        setUpvotes(!upvotes)
+    }
+
+ console.log(showComments,"showc",id);
+
     return (
         <>
             
         <Icongroup>
                 <div className="leftIcons">
                     <div>
-                        <Button className="leftbtn"><Upvote /> <label>12</label></Button>
+                        <Button onClick={handleClick} className="leftbtn">{upvotes ? <UpvoteFilled /> : <Upvote />} <span>12</span></Button>
                         <div className="hide">Upvote</div>
                         
                     </div>
@@ -24,7 +32,7 @@ export const IconGrp = () => {
                         <RoundBtn><Refresh /><label htmlFor="">1</label></RoundBtn>
                         <div className="hide">Share</div>
                     </div>
-                    <div>
+                    <div onClick={() => { handleComments(id) }}>
                         <RoundBtn><Comment/><label htmlFor="">2</label></RoundBtn> 
                         <div className="hide">Comment</div>
                         
@@ -44,7 +52,7 @@ export const IconGrp = () => {
 
             </div>
             </Icongroup>
-            <MyComment />
+            {id===showComments&&toogle&&<MyComment />}
             
             </>
     )
@@ -63,18 +71,20 @@ display: flex;
             display: none;
             position:absolute;
             z-index: 1;
+            text-align: center;
+            min-width:4rem;
             border-radius: 5px;
             height:2rem;
             margin-left:11px;
             margin-top: -70px;
             color:white;
             padding-top: 5px;
-            font-size: .9rem;
+            font-size: .7rem;
         }
         .leftbtn {
             border-bottom-left-radius: 15px;
             border-top-left-radius: 15px;
-            width:3.9rem;
+            width:4rem;
             color: #636466;
             cursor: pointer;
             border:1px solid #d8d7d7;
@@ -87,13 +97,14 @@ display: flex;
                 display: block;
                 background:  #464444;
             }
-            label {
+            span {
                 position: relative;
                 padding-top:0px;
                 align-items: center;
                 font-size: .85rem;
                 top: -6px;
-                margin-bottom: 2px;
+                margin-bottom: 5px;
+                cursor: pointer;
             }
         }
         .rightbtn {
@@ -128,12 +139,14 @@ display: flex;
             display: none;
             position:absolute;
             z-index: 1;
+            min-width:3rem;
             height:2rem;
+            text-align: center;
             margin-left: 1rem;
             margin-top: -70px;
             color:white;
             padding-top: 5px;
-            font-size: .9rem;
+            font-size: .7rem;
             border-radius: 5px;
         }
     }
@@ -161,11 +174,13 @@ width: 2rem;
 color:#2e69ff;
 `;
 
-const UpvoteFilled = styled(GoArrowDown)`
+const UpvoteFilled = styled(GoArrowUp)`
 padding-left:5px;
-padding-top: 5px;
+padding-top: 2px;
+padding-bottom: 2px;;
 font-size: 1.55rem;
 width: 2rem;
+height:1.7rem;
 color:#2e69ff;
 `;
 

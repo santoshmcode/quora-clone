@@ -1,17 +1,23 @@
 import styled from "styled-components";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
-import { HiOutlineRefresh } from "react-icons/hi";
-import { BiDotsHorizontalRounded, BiMessageRounded } from "react-icons/bi";
-import { RiShareForwardLine } from "react-icons/ri";
-import { MyComment } from "./MyComment";
+import { BiDotsHorizontalRounded} from "react-icons/bi";
 import { BiShare } from "react-icons/bi";
+import { GoArrowUp} from "react-icons/go";
+import { useState } from "react";
+
 
 export const CommentVotes = () => {
+    const [upvotes, setUpvotes] = useState(false);
+
+    const handleClick = () => {
+        setUpvotes(!upvotes)
+    }
+
     return (
         <>
             <CommentIcons>
-                <div className="leftBtns">
-                    <BiUpvote className="upvote"/>
+                <div onClick={handleClick} className="leftBtns">
+                    {upvotes?<GoArrowUp className="upvotefilled"/>:<BiUpvote className="upvote" />}
                     <p>Upvote-</p>
                     <p>12</p>
                 </div>
@@ -37,23 +43,19 @@ height: 30px;
 margin-bottom: .2rem;
 display: flex;
 margin-left: 2.2rem;
-/* justify-content: space-between; */
 div:first-child {
     margin-left:1rem;
+    
 }
 
     .leftBtns {
-        /* min-width:6.5rem; */
         display: flex;
         cursor: pointer;
-        
         height: 30px;
         border-radius: 15px;
         margin-right: 10px;
         &:hover{
-        border:1px solid #d8d7d7;
-        background: rgb(247,247,247);
-
+        background: #eeeded;
         }
         .upvote {
             padding-left:5px;
@@ -61,6 +63,15 @@ div:first-child {
             font-size: 1.55rem;
             width: 2rem;
             color: #636466;   
+
+        }
+        .upvotefilled {
+            padding-left:5px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font-size: 1.9rem;
+            width: 2rem;
+            color:#2e69ff;   
 
         }
         .share{
@@ -75,6 +86,7 @@ div:first-child {
             padding-top: 5px;
             padding-left:3px;
             padding-right: 9px;
+            cursor: pointer;
         }
 
     }
@@ -87,24 +99,14 @@ div:first-child {
             font-size: 1.6rem;
             margin-right: 10px;
             padding-right: 5px;
-
-            /* display: flex; */
             cursor: pointer;
             padding-top: 5px;
             margin-left: 15px;
-            width: 30px;
+            width: 32px;
             padding-left: 7px;
             border-radius: 25px;
             color: #636466;
             height: 30px;
-            /* label{
-                        margin-left: 10px;
-                        font-size: .85rem;
-                        margin-top: -5px;
-                        top: -30px;
-                    
-                    } */
-
             &:hover{
                         background: #eeeded;
                     }

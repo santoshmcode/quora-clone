@@ -41,14 +41,23 @@ const dummydata = [
 
 export const QandA = () => {
     const [unhide, setUnhide] = useState(false);
-    const [ID,setID]=useState("")
+    const [ID, setID] = useState("");
+    const [showComments, setShowComments] = useState("");
+    const [commentToogle,setCommentToogle]=useState(false)
+
 
     const handleUnhide = (id) => {
         setID(id)
         setUnhide(true)
     }
+
+       const handleComments = (id) => {
+           setShowComments(id)
+           setCommentToogle(!commentToogle)
+    }
     return (
-            dummydata.map((e,i)=><Container>
+        <>
+            {dummydata.map((e,i)=><Container>
                     <div className="header">
                         <img src={e.userImg} alt="" />
                         <div className="user">
@@ -67,37 +76,36 @@ export const QandA = () => {
                           {i===0?<img src={el} alt="" />:e.id===ID&&<img src={el} alt="" /> }
                         </div>)}
                 </div>
-                <IconGrp/>
+                <IconGrp handleComments={handleComments} toogle={commentToogle} showComments={showComments} id={ e.id}/>
                 
-                <AllComments/>
-                </Container>)
+                {e.id===showComments&&commentToogle&&<AllComments />}
+            </Container>)}
+        </>
     )
 }
 
 
 const Container = styled.div`
-width: 44%;
-
-margin:2rem auto;
-border:1px solid grey;
+width: 35.625rem;
+margin-left: 20rem;
+margin-top: 4rem;
+border:.5px solid rgb(222,224,225);
+box-shadow: 0px 0px 5px rgb(222,224,225);
+border-radius: 8px;
 .header{
     padding-top: 1rem;
     padding-left: 1rem;
     display: flex;
     .user{
         margin-top: 0px;
-        /* border:1px solid grey; */
         padding-top: 3px;
         margin-left: 5px;
-        /* line-height:1px */
-
         p{
             font-size: 13px;
             font-weight: 700;
             color: #282829;
             line-height: .3cm;
-        /* margin-top: 0px; */
-        padding-top: 0px;
+            padding-top: 0px;
         label{
             color:#2e69ff;
             font-weight: 500;

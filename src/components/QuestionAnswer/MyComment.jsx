@@ -20,6 +20,7 @@ width: 100%;
 display: flex;
 background-color: rgb(247,247,248);
 justify-content: space-between;
+border-bottom:.5px solid rgb(222,224,225);
     img{
         margin-left: 1rem;
         width: 2.25rem;
