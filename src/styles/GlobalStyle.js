@@ -1,7 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-    
+    :root { 
+        --primary-heading-font-size:13px;
+        --primary-heading-font-weight:700px;
+        --primary-paragraph-font-size:15px;
+        --primary-paragraph-font-color:#282829;
+        --primary-paragraph-line-height:21px;
+        --primary-small-label-font-size:13px;
+
+     }
         
     *, *::before, *::after{
         margin: 0;
