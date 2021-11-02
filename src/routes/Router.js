@@ -6,10 +6,7 @@ import { HomeMain } from "../components/HomeContents/HomeMain";
 
 const Router = () => {
     return (
-      <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
+     
         <Route path="/homemaincontainer">
           <HomeMain/>
         </Route>
