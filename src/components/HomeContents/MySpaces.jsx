@@ -15,11 +15,11 @@ export const MySpaces = ({title,img}) => {
 
 const MySpace = styled.div`
 display: flex;
-padding-left: 1rem;
+padding-left: .51rem;
 /* border: 1px solid black; */
 min-height: 2.2rem;
 margin-bottom: 8px;
-padding-top: .29rem;
+padding-top: .4rem;
 position: relative;
 &:hover {
     background-color: var(--primary-hover-background-color);

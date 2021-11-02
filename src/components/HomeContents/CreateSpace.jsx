@@ -1,28 +1,8 @@
 import styled from "styled-components"
-import books from './Images/books.jpeg';
-import business from './Images/business.jpeg';
-import cooking from './Images/cooking.jpeg';
-import design from './Images/design.jpeg';
-import education from './Images/education.jpeg';
-import health from './Images/health.jpeg';
-import history from './Images/history.jpeg';
-import mechanical from './Images/mechanical.jpeg';
-import technology from './Images/technology.jpeg';
 import { MySpaces } from "./MySpaces";
 import { AiOutlineCompass } from "react-icons/ai";
+import { SpaceData } from "../../utils/HomeCreateSpace";
 
-const SpaceData = [
-    { img: books, title: "Books" },
-    { img: business, title: "Business" },
-    { img: cooking, title: "Cooking" },
-    { img: design, title: "Design" },
-    { img: education, title: "Education" },
-    { img: health, title: "Health" },
-    { img: history, title: "History" },
-    { img: mechanical, title: "Mechanical Engineering" },
-    {img:technology,title:"Technology"},
-
-]
 
 export const CreateSpace = () => {
     return (
@@ -95,7 +75,7 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
 
     }
     .discoverSpace {
-        padding-left: 1rem;
+        padding-left: .54rem;
         padding-top: .3rem;
         display: flex;
         min-height:2.2rem;
@@ -114,7 +94,7 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
             background-color: rgb(230,231,232);
         }
         p {
-            padding-left: .6rem;
+            padding-left: .4rem;
         }
     }
     .footer {

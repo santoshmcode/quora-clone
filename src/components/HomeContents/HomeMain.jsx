@@ -25,6 +25,9 @@ position: relative;
         top:20px;
         height: fit-content;
     }
+    .QandA{
+        margin-top: 3rem;
+    }
 
     .follow {
         height: fit-content;

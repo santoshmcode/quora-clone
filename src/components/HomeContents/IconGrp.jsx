@@ -8,8 +8,10 @@ import { GoArrowUp} from "react-icons/go";
 import { useState } from "react";
 export const IconGrp = ({handleComments,id,showComments,toogle}) => {
     const [upvotes, setUpvotes] = useState(false);
+    const [countUpvotes,setCountUpVotes]=useState(12)
     const handleClick = () => {
         setUpvotes(!upvotes)
+        upvotes?setCountUpVotes(pre=>pre-1):setCountUpVotes(prev=>prev+1)
     }
 
  console.log(showComments,"showc",id);
@@ -20,7 +22,7 @@ export const IconGrp = ({handleComments,id,showComments,toogle}) => {
         <Icongroup>
                 <div className="leftIcons">
                     <div>
-                        <Button onClick={handleClick} className="leftbtn">{upvotes ? <UpvoteFilled /> : <Upvote />} <span>12</span></Button>
+                        <Button onClick={handleClick} className="leftbtn">{upvotes ? <UpvoteFilled /> : <Upvote />} <span>{ countUpvotes}</span></Button>
                         <div className="hide">Upvote</div>
                         
                     </div>

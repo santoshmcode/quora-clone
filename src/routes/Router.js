@@ -1,10 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import { Login } from "../components";
-import { CreateSpace } from "../components/QuestionAnswer/CreateSpace";
-import { HomeMain } from "../components/QuestionAnswer/HomeMain";
-import { QandA } from "../components/QuestionAnswer/QandA";
-import { SpacesTofollow } from "../components/QuestionAnswer/SpacesTofollow";
+import { HomeMain } from "../components/HomeContents/HomeMain";
+
 
 const Router = () => {
     return (

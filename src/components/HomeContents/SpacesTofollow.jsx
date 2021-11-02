@@ -1,68 +1,6 @@
 import styled from "styled-components"
-import anonymous from './Images/anonimous.jpeg';
-import husandwives from './Images/husbandandwives.jpeg';
-import memes from './Images/memes.jpeg';
-import itconfessions from './Images/itconfessions.png';
-import communication from './Images/communication.png';
-import facts from './Images/factsandknowledge.png';
-import womens from './Images/womenzone.jpeg'
-import married from './Images/marriedlife.jpeg'
-import family from './Images/indianfamily.jpeg'
-import life from './Images/lifestuff.jpeg'
+import { SpacetoFollowData } from "../../utils/HomeSpacetofollow"
 
-const SpacetoFollowData = [
-    
-    {
-        img: anonymous,
-        title: "The anonymously writes",
-        content:"If you want to experiaence something new, follow"
-    },
-    {
-        img: husandwives,
-        title: "Husbands and wives",
-        content:"About husbands and wives(why you need to ..."
-    },
-    {
-        img: memes,
-        title: "Memes Are Life♥️",
-        content:"Sarcasm😝 | Dank Memes😂 | Trolls🤡 | Comics😆 |..."
-    },
-    {
-        img: itconfessions,
-        title: "IT Confessions",
-        content:"Open Confession is Good For Soul"    
-    },
-    {
-        img: communication,
-        title: "Communication Skills",
-        content:"Share your experience, tips & tricks to deal with people."
-    },
-    {
-        img: facts,
-        title: "Daily facts and knowledge",
-        content:"This is about a knowledge of everything"
-    },
-    {
-        img: womens,
-        title: "Womens zone",
-        content:"CAREER /FASHION -LIFESTYLE /WOMENS..."
-    },
-     {
-        img: married,
-        title: "MARRIED LIFE - Lets Talk Facts",
-        content:"Early days of Marriage (Vs) Later life/True love in..."
-    },
-      {
-        img: family,
-        title: "Indian family things",
-        content:"In India, we find different types of joint families. We..."
-    },
-       {
-        img: life,
-        title: "Life's stuffs",
-        content:"This space is about experiences of our life and..."
-    }
-]
 
 export const SpacesTofollow = () => {
     return (
@@ -90,7 +28,7 @@ width:14.135rem;
 border: 1px solid var(--primary-border-color);
 height: fit-content;
 position: absolute;
-right: 4rem;
+right: 7.5rem;
 top: 4rem;
 border-radius: 5px;
 font-size: var(--primary-small-label-font-size);
@@ -122,6 +60,7 @@ box-shadow: 0px 0px 5px rgb(222,224,225);
         width: 13rem;
         padding-bottom: .5rem;
         border-bottom: 1px solid #d9dadb;
+        cursor: pointer;
         margin:auto;
             img {
             height: 1.5rem;
@@ -131,9 +70,12 @@ box-shadow: 0px 0px 5px rgb(222,224,225);
                 padding-left: 8px;
                 span {
                     font-weight: 500;
+                    cursor: pointer;
                 }
                 p {
                     color: var(--primary-light-paragraph-font-color);
+                    cursor: pointer;
+
                 }
             }
         }

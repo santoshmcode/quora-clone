@@ -8,9 +8,12 @@ import { useState } from "react";
 
 export const CommentVotes = () => {
     const [upvotes, setUpvotes] = useState(false);
+    const [countUpvotes, setCountUpVotes] = useState(1);
 
     const handleClick = () => {
-        setUpvotes(!upvotes)
+        setUpvotes(!upvotes);
+        upvotes?setCountUpVotes(pre=>pre-1):setCountUpVotes(prev=>prev+1)
+
     }
 
     return (
@@ -19,7 +22,7 @@ export const CommentVotes = () => {
                 <div onClick={handleClick} className="leftBtns">
                     {upvotes?<GoArrowUp className="upvotefilled"/>:<BiUpvote className="upvote" />}
                     <p>Upvote-</p>
-                    <p>12</p>
+                    <p>{countUpvotes }</p>
                 </div>
                 <div className="leftBtns">
                     <BiShare className="share"/>
