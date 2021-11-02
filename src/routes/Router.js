@@ -3,15 +3,13 @@ import { Route, Switch } from "react-router";
 import { Login } from "../components";
 import { HomeMain } from "../components/HomeContents/HomeMain";
 
-
 const Router = () => {
     return (
-     
-        <Route path="/homemaincontainer">
-          <HomeMain/>
-        </Route>
-      
-      </Switch>
+        <Switch>
+            <Route path="/homemaincontainer">
+                <HomeMain />
+            </Route>
+        </Switch>
     );
 };
 
