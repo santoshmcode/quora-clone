@@ -14,6 +14,7 @@
   grid-template-columns: 29.7% 35.5% 19.5% 13.3%;
   gap: 1.7%;
   margin-top: 5%;
+  margin-bottom: 15px;
 }
 
 .left-tags > div {
@@ -52,6 +53,7 @@
 .left-answer-icon {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .answer-icon {
@@ -79,11 +81,24 @@
   cursor: pointer;
 }
 .share-icon {
-  width: 100px;
+  width: 180px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+.share-icon > div {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.share-icon > div:hover {
+  cursor: pointer;
+  background-color: rgb(243, 241, 241);
 }
 
 .left-ad-title {
@@ -95,6 +110,12 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+.left-ad-top {
+  display: flex;
+  justify-content: space-between;
+}
+
 .left-ad-title:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -120,6 +141,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .left-ad-button:hover {
   border-radius: 40px;
@@ -132,10 +155,12 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #282829;
   font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .answer-tag {
-  margin-top: 10px;
+  margin-top: 15px;
   height: 42px;
   display: grid;
   grid-template-columns: 80% 20%;
@@ -159,6 +184,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 3px;
+  padding-bottom: 5px;
 }
 .author-tag span {
   font-weight: bold;
@@ -178,32 +205,24 @@
 }
 
 /*-----------------------------------------------------*/
-.right-head {
-  margin-top: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  color: #282829;
+.editor {
+  box-shadow: -1px 1px 8px #eeebeb;
+  height: 300px;
 }
-.right-body {
-  color: #195faa;
-  margin-top: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
+
+.answer-svg {
+  color: rgb(19, 41, 243) !important;
 }
-.right-body:hover {
-  cursor: default;
-  text-decoration: underline;
+#top-edit-icon {
+  background-color: white !important;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.right-footer {
-  color: #282829;
-  margin-top: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 12px;
-}
-.right-footer:hover {
-  cursor: default;
-  text-decoration: underline;
+#top-edit-icon:hover {
+  background-color: rgb(243, 241, 241) !important;
+  cursor: pointer;
 }
