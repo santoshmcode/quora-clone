@@ -7,17 +7,23 @@ import {FaRegComment} from 'react-icons/fa'
 import {IoPersonOutline} from 'react-icons/io5'
 import {IoEllipsisHorizontalOutline, IoArrowRedoOutline, IoArrowDownSharp, IoOpenOutline} from 'react-icons/io5'
 import {RiUserFollowLine} from 'react-icons/ri';
+import Editor from './Editor'
 
 
 export const PostPage = () => {
 
     const [display, setDisplay] = useState("none");
-    const [btn, setBtn] = useState("block")
+    const [btn, setBtn] = useState("block");
+    const [editDis, setEditDis] = useState("none");
     
 
     const handleDisplay = () => {
         setDisplay("block");
         setBtn("none");
+    }
+
+    const handleEditDis = () => {
+        setEditDis("block");
     }
 
     return (
@@ -40,7 +46,7 @@ export const PostPage = () => {
                     <div className="answer-icon">
                         <div className="answer-icon-inner">
                             <div><AiOutlineScan></AiOutlineScan></div>
-                            <div>Answer</div>
+                            <div onClick={handleEditDis}>Answer</div>
                         </div>
                         <div className="answer-icon-inner">
                             <div><FiRss></FiRss></div>
@@ -61,6 +67,10 @@ export const PostPage = () => {
                 </div>
 
                 <hr />
+
+                <div style={{display: editDis, marginTop: "10px"}}>
+                    <Editor />
+                </div>
 
                 <div className="left-ad">
                     <div className="left-ad-title">
@@ -124,6 +134,9 @@ Upon successful verification of transactions, these transactions are grouped and
                     Lower transaction costs
                     Secure payments
                 </div>
+
+                
+
 
 
             </div>
