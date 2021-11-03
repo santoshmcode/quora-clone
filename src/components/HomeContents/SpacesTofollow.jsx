@@ -33,6 +33,7 @@ top: 4rem;
 border-radius: 5px;
 font-size: var(--primary-small-label-font-size);
 box-shadow: 0px 0px 5px rgb(222,224,225);
+background-color: #ffffff;
 
     .heading {
         padding-left: .5rem;

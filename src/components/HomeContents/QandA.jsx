@@ -128,6 +128,7 @@ const Container = styled.div`
   width: 35.625rem;
   margin-left: 20rem;
   margin-top: 1rem;
+  background-color: #ffffff;
   border: 0.5px solid rgb(222, 224, 225);
   box-shadow: 0px 0px 5px rgb(222, 224, 225);
   border-radius: 8px;

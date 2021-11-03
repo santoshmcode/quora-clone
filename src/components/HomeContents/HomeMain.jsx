@@ -20,6 +20,7 @@ export const HomeMain = () => {
 const StyledHome = styled.div`
 display: flex;
 position: relative;
+background-color: var(--primary-body-background-color);
     .space {
         position: fixed;
         top:20px;
