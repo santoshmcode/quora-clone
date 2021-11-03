@@ -19,6 +19,31 @@ export default class TextEditor extends Component {
   };
 
   render() {
+
+    function uploadImageCallBack(file) {
+  return new Promise(
+    (resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://api.imgur.com/3/image');
+      xhr.setRequestHeader('Authorization', 'Client-ID 99fce9f6241279f');
+      const data = new FormData();
+      data.append('image', file);
+      xhr.send(data);
+      xhr.addEventListener('load', () => {
+        const response = JSON.parse(xhr.responseText);
+        console.log(response)
+        resolve(response);
+      });
+      xhr.addEventListener('error', () => {
+        const error = JSON.parse(xhr.responseText);
+        console.log(error)
+        reject(error);
+      });
+    }
+  );
+}
+
+
     const { editorState } = this.state;
     console.log((convertToRaw(editorState.getCurrentContent())));
     return (
@@ -41,6 +66,21 @@ export default class TextEditor extends Component {
           editorClassName="editorClassName"
           onEditorStateChange={this.onEditorStateChange} 
           placeholder="Add Your Answer" 
+          toolbar={{
+          inline: { inDropdown: true },
+          list: { inDropdown: true },
+          textAlign: { inDropdown: true },
+          link: { inDropdown: true },
+          history: { inDropdown: true },
+          image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true }, 
+              defaultSize: {
+                height: 'auto',
+                width: '100%',
+              },
+              uploadEnabled: true,
+              inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
+            },
+        }}
         />
         
 
