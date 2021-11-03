@@ -1,0 +1,248 @@
+.qNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  background-color: white;
+  width: 100%;
+
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
+}
+
+.qNav_logo > img {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.qNav_icons {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.qNav_icons > .active > .svgIcon {
+  fill: #8f1f1b;
+}
+
+.qNav_icon > .svgIcon {
+  font-size: xx-large;
+  background-color: white;
+  padding: 5px 20px;
+  color: gray;
+}
+
+.qNav_icon > .svgIcon:hover {
+  background-color: rgba(233, 233, 233, 0.5);
+  border-radius: 10px;
+  color: #b92b27;
+}
+
+.qNav_input {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.qNav_input > input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: rgb(49, 49, 49);
+}
+
+.qNav_input > .svgIcon {
+  color: gray;
+}
+
+.qNav_avatar {
+  cursor: pointer;
+}
+.qNav_Rem {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.qNav_Rem > .svgIcon {
+  font-size: xx-large;
+  color: gray;
+  margin-left: 25px;
+  cursor: pointer;
+}
+.qNav_Rem > .svgIcon:hover {
+  color: #b92b27;
+}
+
+.qNav_Rem > .MuiButton-root {
+  color: white;
+  background: #b92b27;
+  text-transform: inherit;
+  border-radius: 20px;
+  margin-left: 25px;
+}
+
+.qNav_Rem > .MuiButton-root:hover {
+  color: #ffffff;
+  background: #8f1f1b;
+}
+
+/* modal CSS */
+
+.modal__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 40px;
+  margin-left: 200px;
+  margin-top: -15px;
+}
+
+.modal__info {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.modal__info > p {
+  margin-left: 10px;
+  font-size: small;
+  color: gray;
+}
+
+.modal__info > .modal__scope {
+  display: flex;
+  align-items: center;
+  color: rgb(98, 98, 98);
+  padding: 5px;
+  margin-left: 10px;
+  background-color: #f7f7f8;
+  border-radius: 33px;
+  cursor: pointer;
+  height: 23px;
+  min-width: 33px;
+  position: relative;
+  box-shadow: rgb(99 100 102 / 20%) 0px 0px 0px 1px inset;
+  border-width: 0px;
+}
+
+.modal__Field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  flex: 1;
+}
+
+.modal__buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 180px;
+  margin-right: -20px;
+  border-top: 1px solid lightgray;
+  line-height: 1.4;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #dee0e1;
+}
+
+.modal__buttons > .cancle {
+  margin-left: auto;
+  border: none;
+  margin-top: 5px;
+  outline: none;
+  color: gray;
+  font-weight: 500;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 33px;
+  cursor: pointer;
+}
+.modal__buttons > .add {
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  background-color: rgb(0, 64, 255);
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 33px;
+  cursor: pointer;
+}
+.add_btn {
+  display: flex;
+  align-items: center;
+  color: rgb(98, 98, 98);
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 33px;
+  cursor: pointer;
+  width: 130px;
+  height: 30px;
+}
+.add_btn:hover {
+  background-color: rgb(230, 230, 230);
+}
+.MuiBox-root.css-1wnsr1i {
+  box-sizing: border-box;
+  min-height: 400px;
+  max-height: 80vh;
+  max-width: 90vw;
+  width: 620px;
+  border-radius: 8px;
+  transition-property: opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: ease-in-out;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dee0e1;
+}
+.MuiModal-root {
+  background-color: rgba(36, 36, 36, 0.7);
+  border: none;
+}
+.closeIcon {
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.question {
+  font-size: calc(15px * var(--dynamic-font-scale, 1)) !important;
+  font-weight: bold;
+}
+.input2 {
+  margin-left: 0px;
+  margin-top: 10px;
+  height: 36px;
+  width: 100%;
+}
+.input2:hover {
+  border-color: #195faa;
+}
+
+.placeholder {
+  width: 100%;
+  font-size: medium;
+}
+.topics {
+  margin-left: 5px;
+  margin-top: 5px;
+  display: flex;
+  float: left;
+  align-items: center;
+  color: rgb(98, 98, 98);
+  padding: 5px;
+  margin-left: 10px;
+  background-color: #f7f7f8;
+  border-radius: 33px;
+  cursor: pointer;
+  height: 15px;
+  width: fit-content;
+  position: relative;
+  box-shadow: rgb(99 100 102 / 20%) 0px 0px 0px 1px inset;
+  border-width: 0px;
+}
