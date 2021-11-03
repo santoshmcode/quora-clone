@@ -8,7 +8,7 @@
   padding-top: 3px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .post-answer,
 .draft-answer:hover {
@@ -24,7 +24,7 @@
   padding-top: 3px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .button-edit {
   display: flex;
