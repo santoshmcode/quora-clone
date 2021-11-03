@@ -1,0 +1,37 @@
+import styled from "styled-components"
+import { CreateSpace } from "./CreateSpace"
+import { QandA } from "./QandA"
+import { SpacesTofollow } from "./SpacesTofollow"
+
+
+export const HomeMain = () => {
+    return (
+        <StyledHome>
+            <CreateSpace className="space"/>
+            <div className="QandA">
+                <QandA />
+            </div>
+            <SpacesTofollow className="follow"/>  
+        </StyledHome>
+    )
+}
+
+
+const StyledHome = styled.div`
+display: flex;
+position: relative;
+background-color: var(--primary-body-background-color);
+    .space {
+        position: fixed;
+        top:20px;
+        height: fit-content;
+    }
+    .QandA{
+        margin-top: 3rem;
+    }
+
+    .follow {
+        height: fit-content;
+    }
+`;
+
