@@ -28,7 +28,7 @@ position: relative;
         color:var(--primar-quora-logo-color);
         z-index: 1;
         position: absolute;
-        left: 27px;
+        left: 1.15rem;
         font-size: 1.1rem;
         top: 0px;
     }
