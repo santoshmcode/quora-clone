@@ -9,6 +9,7 @@ import {IoEllipsisHorizontalOutline, IoArrowRedoOutline, IoArrowDownSharp, IoOpe
 import {RiUserFollowLine} from 'react-icons/ri';
 import Editor from './Editor'
 import { Sidebar } from './sidebar/Sidebar';
+import { Message } from '../message/Message';
 
 
 export const PostPage = () => {
@@ -167,6 +168,8 @@ Upon successful verification of transactions, these transactions are grouped and
             </div>
 
         </div>
+
+        <Message />
     </div>
     )
 }
