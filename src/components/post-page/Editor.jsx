@@ -10,11 +10,13 @@ import draftToHtml from "draftjs-to-html";
 export default class TextEditor extends Component {
   state = {
     editorState: EditorState.createEmpty(),
+    answerState: EditorState.createEmpty()
   };
 
   onEditorStateChange = (editorState) => {
     this.setState({
-      editorState,
+      editorState: editorState,
+      answerState: draftToHtml(convertToRaw(editorState.getCurrentContent()))
     });
   };
 
@@ -44,8 +46,9 @@ export default class TextEditor extends Component {
 }
 
 
-    const { editorState } = this.state;
-    console.log((convertToRaw(editorState.getCurrentContent())));
+    const { editorState, answerState } = this.state;
+    
+    console.log(answerState);
     return (
       <div>
           <div className="edit-author-credentials">
