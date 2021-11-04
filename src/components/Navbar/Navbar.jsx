@@ -5,10 +5,12 @@ import { Avatar, Button,Input } from "@mui/material";
 // import Modal from "react-modal";
 import { ExpandMore } from "@mui/icons-material";
 import "./navbar.css";
-import { Topic } from "./Topic";
+// import { Topic } from "./Topic";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { v4 as uuid } from "uuid";
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -24,14 +26,67 @@ export const Navbar = () => {
   // const [IsmodalOpen, setIsModalOpen] = useState(false);
   const [input, setInput] = useState("");
   const [que, setQue] = useState(false);
-  const [question,setQuestion] = useState("");
+  const [question, setQuestion] = useState("");   //state for finally added question
+  const [tag,setTag] = useState([]);  // state for all the topics{tags} that are finally added
    const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  
    const handleQuestion = (e) => {
    setQuestion(input)
-    setQue(true);
-  };
+     setQue(true);
+     setTopic([]);
+   };
+
+
+  //for topic section 
+
+  const [value, setValue] = React.useState("");
+  const [topic, setTopic] = React.useState([]);
+  const handleOpen = () => setOpen(true);
+  
+  const handleClose = () => {
+    setOpen(false); setQue(false);
+    setValue("");
+    setInput("");
+    setTopic([]);
+  }
+    const handleChange = (e) => {
+        setValue(e.target.value)
+  }
+  
+    const handleTopic = () => {
+        setTag(topic)
+        setQue(false);
+      setValue("");
+      setInput("");
+      setTopic([]);
+      console.log(tag);
+      console.log(question)
+      handleClose()
+  }
+  const handleDelete = (e) => {
+    console.log(e)
+    let updatedtopic = topic.filter((item) => item.id !== e);
+    console.log(updatedtopic)
+        setTopic(updatedtopic)
+    
+  }
+     React.useEffect(() => {
+    const listener = event => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        console.log("Enter key was pressed. Run your function.");
+        event.preventDefault();
+        // callMyFunction();
+        const data={value: value,id:uuid()}
+        setTopic([data, ...topic]);
+        setValue("")
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+     }, [topic, value]);
+  
     return (
        <div className="qNav">
       <div className="qNav_logo">
@@ -149,8 +204,31 @@ export const Navbar = () => {
             </button>
     </div></>
     :
-              <Topic Input={question} handleQuestion={handleQuestion} handleClose={handleClose} setQue={setQue} />
-  
+              // <Topic Input={question} handleQuestion={handleQuestion} handleClose={handleClose} setQue={setQue} />
+            
+                   <div>
+            <h3>Edit Topics</h3>
+            <div>Make sure this question has the right topics:<br/><span className="question">{question}</span></div>
+            
+            <div className="qNav_input input2">
+          <div className="svgIcon">
+            <SearchIcon />
+            </div>
+                <input type="text" className="placeholder" value={value} onChange={handleChange}  placeholder="Add topics that best describe your question " />
+            
+            </div>
+            
+            {topic.map(e => { return <div className="topics" key={e.id} >{e.value} <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -3 25 25" onClick={()=>handleDelete(e.id)}><g id="small_close" class="icon_svg-stroke" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke="#666666" stroke-width="1.5"><path d="M12,6 L12,18" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/><path d="M18,12 L6,12" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/></g></svg></div> })}
+             <div className="modal__buttons">
+              <br/>
+            <button className="cancle" onClick={() => handleClose()}>
+              Cancel
+            </button>
+            <button type="sumbit"  className="add" onClick={handleTopic}>
+              Done
+                </button>
+                </div>
+        </div>
                   
          }
         </Box>
