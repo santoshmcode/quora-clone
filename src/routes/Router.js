@@ -7,9 +7,10 @@ import { login, logout, selectUser } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../config/firebase.config";
 import { PostPage } from "../components/post-page/PostPage";
-
 import { HomeMain } from "../components/HomeContents/HomeMain";
+import {Notification} from '../components/Notifications/Notification'
 import { Navbar } from "../components/Navbar/Navbar";
+
 
 const Router = () => {
   const user = useSelector(selectUser);
@@ -46,6 +47,9 @@ const Router = () => {
       </Route>
       <Route path="/homepage">
         <Navbar />
+      </Route>
+      <Route path="/notifications">
+          <Notification />
       </Route>
     </Switch>
   );
