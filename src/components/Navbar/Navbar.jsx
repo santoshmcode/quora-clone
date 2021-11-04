@@ -1,7 +1,7 @@
 import {useState} from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import LanguageIcon from "@mui/icons-material/Language";
-import { Avatar, Button,Input } from "@mui/material";
+import { Avatar, Button,Input,FormHelperText } from "@mui/material";
 // import Modal from "react-modal";
 import { ExpandMore } from "@mui/icons-material";
 import "./navbar.css";
@@ -10,6 +10,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { v4 as uuid } from "uuid";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
 
 const style = {
   position: 'absolute',
@@ -24,14 +26,18 @@ const style = {
 };
 export const Navbar = () => {
   // const [IsmodalOpen, setIsModalOpen] = useState(false);
+  const user = useSelector(selectUser);
   const [input, setInput] = useState("");
   const [que, setQue] = useState(false);
   const [question, setQuestion] = useState("");   //state for finally added question
   const [tag,setTag] = useState([]);  // state for all the topics{tags} that are finally added
-   const [open, setOpen] = React.useState(false);
-  
-   const handleQuestion = (e) => {
-   setQuestion(input)
+  const [open, setOpen] = React.useState(false);
+  console.log("user",user)
+  const handleQuestion = (e) => {
+    if (input === "") {
+      return;
+     }
+    setQuestion(input)
      setQue(true);
      setTopic([]);
    };
@@ -53,7 +59,10 @@ export const Navbar = () => {
         setValue(e.target.value)
   }
   
-    const handleTopic = () => {
+  const handleTopic = () => {
+    if (topic.length===0) {
+      return;
+      }
         setTag(topic)
         setQue(false);
       setValue("");
@@ -130,7 +139,7 @@ export const Navbar = () => {
       </div>
       <div className="qNav_Rem">
         <div className="qNav_avatar">
-          <Avatar className="Avatar" src="https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"/>
+          <Avatar className="Avatar" src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}/>
           </div>
           <div className="svgIcon">
             <LanguageIcon />
@@ -172,11 +181,11 @@ export const Navbar = () => {
             <h5>Share Link</h5> */}
           </div>
           <div className="modal__info">
-            <Avatar
-              className="avatar"
-             src="https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"
+                    <Avatar
+                      className="avatar"
+                      src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}
             />
-            <p>{"Pranali Malkar"} asked</p>
+            <p>{user.displayName} asked</p>
             <div className="modal__scope">
               <svg width="24px" height="24px" viewBox="0 0 24 24"><g stroke="none" fill="none" fill-rule="evenodd"><g class="icon_svg-stroke" transform="translate(4.000000, 4.000000)" stroke="#666666" stroke-width="1.5"><path d="M10,15.5 C10,12.7385763 7.76142375,10.5 5,10.5 C2.23857625,10.5 0,12.7385763 0,15.5"></path><path d="M17,15.5 C17,12.7385763 14.7614237,10.5 12,10.5 C11.2764674,10.5 10.588829,10.6536817 9.96794692,10.930183"></path><circle cx="5" cy="4" r="4"></circle><path d="M9.67845014,7.25774619 C10.3330402,7.72505997 11.1344123,8 12,8 C14.209139,8 16,6.209139 16,4 C16,1.790861 14.209139,0 12,0 C11.183578,0 10.424284,0.24459363 9.79139875,0.664499992"></path></g></g></svg>
               <p>Public</p>
@@ -189,7 +198,9 @@ export const Navbar = () => {
               onChange={(e) => setInput(e.target.value)}
               type="text"
               placeholder="Start your question with 'What', 'How', 'Why', etc. "
-            />
+                    />
+            
+                 {input===""? <FormHelperText id="my-helper-text">*This question needs more detail. Add more information to ask a clear question, written as a complete sentence..</FormHelperText>:""}   
          
           </div>
               
@@ -199,7 +210,7 @@ export const Navbar = () => {
       <button className="cancle" onClick={() => {handleClose();  setInput("") }}>
               Cancel
             </button>
-            <button type="sumbit"  className="add" onClick={handleQuestion}>
+            <button type="sumbit"  className="add" onClick={handleQuestion} >
               Add Question
             </button>
     </div></>
@@ -215,10 +226,10 @@ export const Navbar = () => {
             <SearchIcon />
             </div>
                 <input type="text" className="placeholder" value={value} onChange={handleChange}  placeholder="Add topics that best describe your question " />
-            
+                      
             </div>
-            
-            {topic.map(e => { return <div className="topics" key={e.id} >{e.value} <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -3 25 25" onClick={()=>handleDelete(e.id)}><g id="small_close" class="icon_svg-stroke" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke="#666666" stroke-width="1.5"><path d="M12,6 L12,18" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/><path d="M18,12 L6,12" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/></g></svg></div> })}
+            {topic.length===0?<FormHelperText id="my-helper-text">*Please add at least one topic.</FormHelperText>:""}
+                    {topic.map(e => { return <div className="topics" key={e.id} >{e.value} <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -3 25 25" onClick={()=>handleDelete(e.id)}><g id="small_close" class="icon_svg-stroke" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke="#666666" stroke-width="1.5"><path d="M12,6 L12,18" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/><path d="M18,12 L6,12" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/></g></svg></div> })}
              <div className="modal__buttons">
               <br/>
             <button className="cancle" onClick={() => handleClose()}>
