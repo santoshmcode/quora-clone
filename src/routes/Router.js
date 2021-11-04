@@ -8,9 +8,8 @@ import { useDispatch } from "react-redux";
 import { auth } from "../config/firebase.config";
 import { PostPage } from "../components/post-page/PostPage";
 import { HomeMain } from "../components/HomeContents/HomeMain";
-import {Notification} from '../components/Notifications/Notification'
+import { Notification } from "../components/Notifications/Notification";
 import { Navbar } from "../components/Navbar/Navbar";
-
 
 const Router = () => {
   const user = useSelector(selectUser);
@@ -31,7 +30,7 @@ const Router = () => {
       <Route path="/" exact>
         {user ? (
           <>
-            <h1>Home page</h1>
+            <Navbar />
             <p>Hello {user.email}</p>
             <button onClick={() => auth.signOut()}>Logout</button>
           </>
@@ -45,11 +44,9 @@ const Router = () => {
       <Route path="/homemaincontainer">
         <HomeMain />
       </Route>
-      <Route path="/homepage">
-        <Navbar />
-      </Route>
+
       <Route path="/notifications">
-          <Notification />
+        <Notification />
       </Route>
     </Switch>
   );
