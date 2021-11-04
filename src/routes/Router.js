@@ -9,7 +9,7 @@ import { auth } from "../config/firebase.config";
 import { PostPage } from "../components/post-page/PostPage";
 
 import { HomeMain } from "../components/HomeContents/HomeMain";
-
+import {Notification} from '../components/Notifications/Notification'
 const Router = () => {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
@@ -25,25 +25,28 @@ const Router = () => {
     }, [dispatch]);
 
     return (
-        <Switch>
-            <Route path="/" exact>
-                {user ? (
-                    <>
-                        <h1>Home page</h1>
-                        <p>Hello {user.email}</p>
-                        <button onClick={() => auth.signOut()}>Logout</button>
-                    </>
-                ) : (
-                    <Login />
-                )}
-            </Route>
-            <Route exact path="/postPage">
-                <PostPage />
-            </Route>
-            <Route path="/homemaincontainer">
-                <HomeMain />
-            </Route>
-        </Switch>
+      <Switch>
+        <Route path="/" exact>
+          {user ? (
+            <>
+              <h1>Home page</h1>
+              <p>Hello {user.email}</p>
+              <button onClick={() => auth.signOut()}>Logout</button>
+            </>
+          ) : (
+            <Login />
+          )}
+        </Route>
+        <Route exact path="/postPage">
+          <PostPage />
+        </Route>
+        <Route path="/homemaincontainer">
+          <HomeMain />
+        </Route>
+        <Route path="/notifications">
+          <Notification />
+        </Route>
+      </Switch>
     );
 };
 
