@@ -27,10 +27,10 @@ const SpaceFollow = styled.div`
 width:14.135rem;
 border: 1px solid var(--primary-border-color);
 height: fit-content;
-position: absolute;
-right: 7.5rem;
-top: 4rem;
-border-radius: 5px;
+
+margin-left: 1.5rem;
+margin-top: 2rem;
+border-radius: 3px;
 font-size: var(--primary-small-label-font-size);
 box-shadow: 0px 0px 5px rgb(222,224,225);
 background-color: #ffffff;
