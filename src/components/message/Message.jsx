@@ -70,7 +70,7 @@ const MessageCont = styled.div`
     font-size: 23px;
     cursor: pointer;
     z-index: 1000;
-    border: 1px solid #f4f0f0;
+    background-color :#f4f0f0;
     &:hover {
         background-color :#f4f0f0;
         cursor: pointer;
@@ -111,6 +111,7 @@ const MessageCont = styled.div`
     right: 30px;
     bottom : 0;
     z-index: 1000;
+    background-color: white;
     hr{
         border-top: 0.1px solid #f4f0f0;
     }
