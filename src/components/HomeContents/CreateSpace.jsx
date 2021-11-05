@@ -44,7 +44,6 @@ scrollbar-width: thin;
 scrollbar-color: white rgb(194, 193, 193);
 overflow-x: hidden;
 overflow-y: hidden;
-cursor: pointer;
 &:hover {
 overflow-y: visible;
 }
@@ -62,6 +61,7 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
         padding-top: .3rem;
         display: flex;
         min-height:2.2rem;
+        cursor: pointer;
         background-color: rgb(236,237,237);
         span {
             width:1.1rem;
@@ -76,6 +76,9 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
         &:hover {
             background: var(--primary-hover-background-color)
         }
+        p {
+            cursor: pointer;
+        }
 
     }
     .discoverSpace {
@@ -84,6 +87,7 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
         display: flex;
         min-height:2.2rem;
         margin-bottom: 2rem;
+        cursor: pointer;
         &:hover {
             background: var(--primary-hover-background-color)
         }
@@ -99,6 +103,7 @@ border-top: 1px solid rgba(240, 240, 240, 0.6);
         }
         p {
             padding-left: .4rem;
+            cursor: pointer;
         }
     }
     .footer {
