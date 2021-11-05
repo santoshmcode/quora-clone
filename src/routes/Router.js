@@ -13,6 +13,7 @@ import { Navbar } from "../components/Navbar/Navbar";
 import PrivateRoute from "./PrivateRoute";
 import { Link } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
+import { PostData } from "../components/dbTest/PostData";
 
 const Router = () => {
     const user = useSelector(selectUser);
@@ -63,6 +64,9 @@ const Router = () => {
 
             <Route path="/notifications">
                 <Notification />
+            </Route>
+            <Route>
+                <PostData />
             </Route>
         </Switch>
     );
