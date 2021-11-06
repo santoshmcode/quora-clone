@@ -1,26 +1,36 @@
-.qNav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.Nav {
   padding: 1px;
   background-color: white;
-  width: 100%;
-
+  max-height: 50px;
   position: sticky;
   z-index: 1000;
   top: 0;
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
 }
+.qNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  width: 1050px;
+  max-height: 50px;
+  position: sticky;
+  margin: auto;
+}
 
 .qNav_logo > img {
-  height: 30px;
+  height: 25px;
   margin-right: 20px;
+  width: 87px;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .qNav_icons {
   display: flex;
   align-items: center;
   cursor: pointer;
+  max-height: 50px;
 }
 
 .qNav_icons > .active > .svgIcon {
@@ -29,7 +39,6 @@
 
 .qNav_icon > .svgIcon {
   font-size: xx-large;
-  background-color: white;
   padding: 5px 20px;
   color: gray;
 }
@@ -37,7 +46,6 @@
 .qNav_icon > .svgIcon:hover {
   background-color: rgba(233, 233, 233, 0.5);
   border-radius: 10px;
-  color: #b92b27;
 }
 
 .qNav_input {
@@ -47,6 +55,8 @@
   padding: 5px;
   border-radius: 5px;
   margin-left: 5px;
+  width: 247px;
+  height: 36px;
 }
 
 .qNav_input > input {
@@ -91,7 +101,14 @@
   color: #ffffff;
   background: #8f1f1b;
 }
-
+.active .svgIcon {
+  color: #b92b27;
+  fill: #b92b27;
+}
+.active {
+  border-bottom: 3px solid #b92b27;
+  border-radius: 3px;
+}
 /* modal CSS */
 
 .modal__title {
