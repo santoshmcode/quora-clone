@@ -26,29 +26,27 @@ const Router = () => {
   }, [dispatch]);
 
   return (
-    <Switch>
-      <Route path="/" exact>
-        {user ? (
-          <>
-            <Navbar />
-            <p>Hello {user.email}</p>
-            <button onClick={() => auth.signOut()}>Logout</button>
-          </>
-        ) : (
-          <Login />
-        )}
-      </Route>
-      <Route exact path="/postPage">
-        <PostPage />
-      </Route>
-      <Route path="/homemaincontainer">
-        <HomeMain />
-      </Route>
+    <Route path="/">
+      {user ? (
+        <>
+          <Navbar />
+          {/* <p>Hello {user.email}</p>
+          <button onClick={() => auth.signOut()}>Logout</button> */}
+          <Route path="/postPage">
+            <PostPage />
+          </Route>
+          <Route path="/homemaincontainer">
+            <HomeMain />
+          </Route>
 
-      <Route path="/notifications">
-        <Notification />
-      </Route>
-    </Switch>
+          <Route path="/notifications">
+            <Notification />
+          </Route>
+        </>
+      ) : (
+        <Login />
+      )}
+    </Route>
   );
 };
 
