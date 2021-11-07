@@ -6,13 +6,15 @@ import { SpacesTofollow } from "./SpacesTofollow"
 
 export const HomeMain = () => {
     return (
-        <StyledHome>
-            <CreateSpace className="space"/>
-            <div className="QandA">
-                <QandA />
-            </div>
-            <SpacesTofollow className="follow"/>  
-        </StyledHome>
+        <Home>
+            <StyledHome>
+                <CreateSpace className="space"/>
+                <div className="QandA">
+                    <QandA />
+                </div>
+                <SpacesTofollow className="follow"/>  
+            </StyledHome>
+        </Home>
     )
 }
 
@@ -20,6 +22,8 @@ export const HomeMain = () => {
 const StyledHome = styled.div`
 display: flex;
 position: relative;
+width: 80%;
+margin: auto;
 background-color: var(--primary-body-background-color);
     .space {
         position: fixed;
@@ -27,7 +31,7 @@ background-color: var(--primary-body-background-color);
         height: fit-content;
     }
     .QandA{
-        margin-top: 3rem;
+        margin-top: 1rem;
     }
 
     .follow {
@@ -35,3 +39,8 @@ background-color: var(--primary-body-background-color);
     }
 `;
 
+
+const Home = styled.div`
+background-color: var(--primary-body-background-color);
+
+`;

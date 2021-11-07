@@ -16,6 +16,7 @@ import RestrictedRoute from "./RestrictedRoute";
 import { PostData } from "../components/dbTest/PostData";
 
 const Router = () => {
+
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
 
@@ -70,6 +71,7 @@ const Router = () => {
             </Route>
         </Switch>
     );
+
 };
 
 export default Router;

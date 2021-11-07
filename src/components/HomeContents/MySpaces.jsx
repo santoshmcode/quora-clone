@@ -16,7 +16,7 @@ export const MySpaces = ({title,img}) => {
 const MySpace = styled.div`
 display: flex;
 padding-left: .51rem;
-/* border: 1px solid black; */
+cursor: pointer;
 min-height: 2.2rem;
 margin-bottom: 8px;
 padding-top: .4rem;
@@ -38,6 +38,7 @@ position: relative;
     }
     p{
         margin-left: 1rem;
+        cursor: pointer;
     }
 
 `;

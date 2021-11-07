@@ -40,7 +40,7 @@ export const AllComments = () => {
           {e.comment.length > 70 ? (
             <>
                         {e.comment.slice(0, 123)} <label onClick={() => { handleUnhide(e.id) }} className={unhide && ID === e.id ? `hide` : `unhide`}>(more)</label>
-              <span className={unhide && ID === e.id ? `unhide` : `hide`}>{e.comment.slice(120)}{" "}</span>
+              <span className={unhide && ID === e.id ? `unhide` : `hide`}>{e.comment.slice(123)}{" "}</span>
             </>
           ) : (
             e.comment
@@ -77,6 +77,7 @@ const AllComment = styled.div`
         label {
           color: #2e69ff;
           font-weight: 500;
+
         }
       }
       span {
@@ -102,6 +103,8 @@ const AllComment = styled.div`
         cursor: pointer;
         top:1.8rem;
         right:2.2rem;
+        box-shadow: 0px 10px 10px 8px white;
+
     }
     .hide {
     display: none;
