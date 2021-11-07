@@ -31,44 +31,44 @@ export const PostData = () => {
         });
     };
 
-    // useEffect(() => {
-    //     const dbRef = db.collection("questions");
-    //     const data = dbRef.onSnapshot((querySnapshot) => {
-    //         const questions = [];
-    //         querySnapshot.forEach((doc) => {
-    //             questions.push({
-    //                 ...doc.data(), //spread operator
-    //                 key: doc.id, // `id` given to us by Firebase
-    //                 createdAt: doc.data().createdAt,
-    //             });
-    //         });
-    //         setAllQuestions(
-    //             questions.sort((a, b) => b.createdAt - a.createdAt)
-    //         );
-    //     });
-
-    //     // return cleanup function
-    //     return () => data();
-    // }, []);
-
-    const fun = () => {
-        const questions = getData("questions");
-        // const questions = await res();
-        console.log("questions:", questions);
-
-        return questions;
-    };
     useEffect(() => {
-        // fun();
-        console.log("fun():", fun());
-        // const questions = getData("questions");
-        // console.log("questions:", questions);
-
-        // setAllQuestions(questions.sort((a, b) => b.createdAt - a.createdAt));
+        const dbRef = db.collection("questions");
+        const data = dbRef.onSnapshot((querySnapshot) => {
+            const questions = [];
+            querySnapshot.forEach((doc) => {
+                questions.push({
+                    ...doc.data(), //spread operator
+                    key: doc.id, // `id` given to us by Firebase
+                    createdAt: doc.data().createdAt,
+                });
+            });
+            setAllQuestions(
+                questions.sort((a, b) => b.createdAt - a.createdAt)
+            );
+        });
 
         // return cleanup function
-        // return () => data();
+        return () => data();
     }, []);
+
+    // const fun = async () => {
+    //     const questions = getData("questions");
+    //     // const questions = await res();
+    //     console.log("questions:", questions());
+
+    //     return await questions();
+    // };
+    // useEffect(() => {
+    //     fun();
+    //     // console.log("fun():", fun());
+    //     // const questions = getData("questions");
+    //     // console.log("questions:", questions);
+
+    //     // setAllQuestions(questions.sort((a, b) => b.createdAt - a.createdAt));
+
+    //     // return cleanup function
+    //     // return () => data();
+    // }, []);
 
     const handleDelete = (id) => {
         const dbRef = db.collection("questions");

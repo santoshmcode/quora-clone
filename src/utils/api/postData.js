@@ -9,7 +9,7 @@ export const getData = (ref) => {
     let dataArray = [];
     const dbRef = db.collection(ref);
     // console.log("dbRef:", dbRef);
-    dbRef.onSnapshot((querySnapshot) => {
+    return dbRef.onSnapshot((querySnapshot) => {
         // console.log("querySnapshot:", querySnapshot);
         dataArray = [];
         querySnapshot.forEach((doc) => {
@@ -20,7 +20,7 @@ export const getData = (ref) => {
             });
         });
 
-        console.log("dataArray:", dataArray);
+        // console.log("dataArray:", dataArray);
 
         return dataArray;
     });
