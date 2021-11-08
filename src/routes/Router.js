@@ -10,6 +10,7 @@ import { PostPage } from "../components/post-page/PostPage";
 import { HomeMain } from "../components/HomeContents/HomeMain";
 import { Notification } from "../components/Notifications/Notification";
 import { Navbar } from "../components/Navbar/Navbar";
+
 import PrivateRoute from "./PrivateRoute";
 import { Link } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
