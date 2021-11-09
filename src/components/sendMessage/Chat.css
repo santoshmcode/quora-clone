@@ -26,20 +26,23 @@ p {
 }
 
 .sent {
-  background-color: blue;
+  background-color: #2e69ff;
   color: white;
-  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
   flex-direction: row-reverse;
   padding: 20px 20px 0 10px;
   text-align: end;
   float: right;
+  font-size: 15px;
 }
 
 .received {
   border: 1px solid lightgray;
-  background-color: #fafafa;
-  border-top-left-radius: 1px;
+  background-color: #f1f2f2;
+  border-bottom-left-radius: 1px;
   float: left;
+  color: #282829;
+  font-size: 15px;
 }
 
 .sendMsg {
@@ -98,12 +101,14 @@ p {
   border: 1px solid rgb(240, 229, 229);
   display: flex;
   flex-direction: column;
+  color: #282829;
 }
 
 .chat-right {
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(240, 229, 229);
+  color: #282829;
 }
 .chat-left-top {
   width: 100%;
@@ -147,6 +152,7 @@ p {
   grid-template-columns: 20% 75%;
   gap: 3%;
   border-bottom: 1px solid rgb(240, 229, 229);
+  align-items: center;
 }
 
 .chat-left-img {
@@ -165,5 +171,4 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
 }
