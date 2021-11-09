@@ -24,17 +24,26 @@ function Chat() {
                     </div>
                 </div>
                 <div className="chat-left-bottom">
-                    <div>
-                        
+                    <div className="chat-left-img">
+                        <img src="https://img.lovepik.com/element/40144/0477.png_300.png" alt="avatart" />
                     </div>
-                    <div>
-
+                    <div className="chat-left-text">
+                        <div><h3>Name Surname</h3></div>
+                        <div>Thur</div>
                     </div>
                 </div>
             </div>
             <div className='chat-right'>
                 <div className='chat-right-top'>
-
+                    <div className="chat-left-bottom">
+                    <div className="chat-left-img">
+                        <img src="https://img.lovepik.com/element/40144/0477.png_300.png" alt="avatart" />
+                    </div>
+                    <div className="chat-left-text">
+                        <div><h3>Name Surname</h3></div>
+                        <div>Thur</div>
+                    </div>
+                </div>
                 </div>
                 <div className="msgs">
                 {messages.map(({ id, text, photoURL, uid }) => (

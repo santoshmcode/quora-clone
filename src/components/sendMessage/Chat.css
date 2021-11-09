@@ -99,17 +99,13 @@ p {
   display: flex;
   flex-direction: column;
 }
-.chat-left div {
-  border: 1px solid black;
-}
+
 .chat-right {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 .chat-left-top {
   width: 100%;
-  border: 1px solid black;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -139,6 +135,24 @@ p {
 }
 .chat-left-bottom div {
   border: 1px solid black;
+}
+
+.chat-left-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-left-img > img {
+  width: 40px;
+  height: 40px;
+}
+
+.chat-left-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
 .chat-right-top {
