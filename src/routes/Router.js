@@ -69,7 +69,6 @@ const Router = () => {
                 <Notification />
             </Route>
             <Route path='/chat' exact>
-                <Navbar />
                 <Chat />
             </Route>
             <Route>
