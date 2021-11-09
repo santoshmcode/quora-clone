@@ -219,8 +219,8 @@
   border-width: 1px;
   border-color: #dee0e1;
 }
-.MuiModal-root {
-  background-color: rgba(36, 36, 36, 0.7);
+.MuiModal-root .modal {
+  background-color: rgba(36, 36, 36, 0.9);
   border: none;
 }
 .closeIcon {
@@ -262,4 +262,48 @@
   position: relative;
   box-shadow: rgb(99 100 102 / 20%) 0px 0px 0px 1px inset;
   border-width: 0px;
+}
+
+#profile_dropdown {
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  content: "";
+  height: 0px;
+  width: 2px;
+  margin-left: 20px;
+  top: 55px;
+  border-left-width: 10px;
+  border-right-width: 5px;
+  color: #7d8083;
+}
+#profile_dropdown {
+  left: 65%;
+  position: absolute;
+}
+#profile_dropdown {
+  background: white;
+  width: 200px;
+  height: -1px;
+  text-align: center;
+}
+.box {
+  width: fit-content;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  margin: 40px;
+}
+.box.arrow-top {
+  margin-top: 40px;
+}
+.box.arrow-top:after {
+  content: " ";
+  position: absolute;
+  right: 20px;
+  top: -15px;
+  border-top: none;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid white;
 }
