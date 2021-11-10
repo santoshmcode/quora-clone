@@ -219,7 +219,7 @@
   border-width: 1px;
   border-color: #dee0e1;
 }
-.MuiModal-root {
+.MuiModal-root .modal {
   background-color: rgba(36, 36, 36, 0.7);
   border: none;
 }
