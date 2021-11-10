@@ -40,7 +40,18 @@ const Router = () => {
         component={Login}
         exact
       />
-
+      <Route path="/" exact>
+        {user ? (
+          <>
+            <Home />
+            <button onClick={() => auth.signOut()}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Redirect to="/login" />
+          </>
+        )}
+      </Route>
       {/* User need to loggedIn to access this routes */}
       <PrivateRoute component={PostPage} path="/postPage" exact />
 
@@ -57,9 +68,9 @@ const Router = () => {
       <Route path="/chat" exact>
         <Chat />
       </Route>
-      <Route>
+      {/* <Route>
         <PostData />
-      </Route>
+      </Route> */}
     </Switch>
   );
 };
