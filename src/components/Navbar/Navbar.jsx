@@ -14,20 +14,6 @@ import { useSelector,useDispatch } from "react-redux";
 import { login, logout,selectUser } from "../../features/userSlice";
 import { NavLink, useLocation, Link } from "react-router-dom";
 import { auth } from "../../config/firebase.config";
-// import { Dropdown } from "./Dropdown";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import {Logout,ContentCopy} from '@mui/icons-material';
-// import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import ListItemText from "@mui/material/ListItemText"
-import Paper from "@mui/material/Paper"
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -39,24 +25,17 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 export const Navbar = () => {
   // const [IsmodalOpen, setIsModalOpen] = useState(false);
   const user = useSelector(selectUser);
   const [input, setInput] = useState("");
-  const [input2, setinput2] = useState(false);
   const [que, setQue] = useState(false);
   const [question, setQuestion] = useState("");   //state for finally added question
   const [tag,setTag] = useState([]);  // state for all the topics{tags} that are finally added
   const [open, setOpen] = React.useState(false);
-  // const [profile,setProfile]=useState(false);
   console.log("user",user)
   const handleQuestion = (e) => {
     if (input === "") {
-      handleClick2()
       return;
      }
     setQuestion(input)
@@ -76,16 +55,13 @@ console.log(location)
     setValue("");
     setInput("");
     setTopic([]);
-    setinput2(false)
   }
     const handleChange = (e) => {
         setValue(e.target.value)
   }
   
   const handleTopic = () => {
-    if (topic.length === 0) {
-      setinput2(true);
-      handleClick3()
+    if (topic.length===0) {
       return;
       }
         setTag(topic)
@@ -133,50 +109,6 @@ console.log(location)
       }
     });
   }, [dispatch]);
-
-
-
-  // for profile menu section
- const [anchorEl1, setAnchorEl1] = React.useState(null);
-  const open1 = Boolean(anchorEl1);
-  const handleClick1 = (event) => {
-    setAnchorEl1(event.currentTarget);
-  };
-  const handleClose1 = () => {
-    setAnchorEl1(null);
-  };
-
-
-  ///for pop up alert 
-
-  const [open2, setOpen2] = React.useState(false);
-const [open3, setOpen3] = React.useState(false);
-  const handleClick2 = () => {
-    setOpen2(true);
-  };
-
-  const handleClose2 = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen2(false);
-  };
-
-
-  //for topic alert 
-  const handleClick3 = () => {
-    setOpen3(true);
-  };
-
-  const handleClose3 = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen3(false);
-  };
-
   return (
       <div className="Nav">
     <div className="qNav">
@@ -246,120 +178,9 @@ const [open3, setOpen3] = React.useState(false);
         <input type="text" placeholder="Search Quora" />
       </div>
       <div className="qNav_Rem">
-        <div className="qNav_avatar"  onClick={handleClick1}>
-          <Avatar className="Avatar"  sx={{ width: 24, height: 24 }} src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}/>
-          {/* onClick={() => auth.signOut()} */}
+        <div className="qNav_avatar">
+          <Avatar className="Avatar" onClick={() => auth.signOut()} sx={{ width: 24, height: 24 }} src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}/>
           </div>
-         
-          <Menu
-        anchorEl={anchorEl1}
-        open={open1}
-        onClose={handleClose1}
-        onClick={handleClose1}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            width: 228, maxWidth: '100%',
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 2.7,
-            ml:12,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 102,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-          >
-             {/* <Paper sx={{ width: 228, maxWidth: '100%' }}  anchorEl={anchorEl1}
-        open={open1}
-        onClose={handleClose1}
-        onClick={handleClose1}> */}
-        <MenuItem>
-          <Avatar src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}/> 
-        </MenuItem>
-            <MenuItem>
-              <ListItemText><b>{user.displayName}</b></ListItemText>
-              
-               <Typography variant="body2" color="text.secondary">
-            <svg width="24px" height="24px" viewBox="0 0 24 24"><g id="chevron_right" class="icon_svg-stroke" stroke="#666" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round"><polyline id="chevron" transform="translate(12.500000, 12.002415) scale(1, -1) rotate(-90.000000) translate(-12.500000, -12.002415) " points="5.49758463 8.50241537 12.4975846 15.5024154 19.5024154 8.50241537"></polyline></g></svg>
-          </Typography>
-            </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-         <ListItemText> Messages</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-         Create Ad
-              </MenuItem>
-               <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-         Monetization 
-              </MenuItem>
-               <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-        Your Content {"&"} stats
-              </MenuItem>
-               <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-         Bookmarks
-              </MenuItem>
-               <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-        Drafts
-              </MenuItem>
-                <Divider />
-           <MenuItem>
-          <ListItemText >Dark mode</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText >Settings</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText >Languages</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText >Help</ListItemText>
-        </MenuItem>
-          <MenuItem onClick={() => auth.signOut()} >
-          <ListItemText >Logout</ListItemText>
-        </MenuItem>
-       
-        {/* </Paper> */}
-      </Menu>
-      
-          {/* {profile ? (
-           <Dropdown/>):""} */}
           <div className="svgIcon">
             <LanguageIcon sx={{width: 26, height: 26} }/>
             </div>
@@ -381,22 +202,10 @@ const [open3, setOpen3] = React.useState(false);
           }}
           > */}
             <div>
-      {open2?<Snackbar anchorOrigin={{ vertical: 'top',
-          horizontal: 'center',}} open={open2} autoHideDuration={6000} onClose={handleClose2}>
-        <Alert onClose={handleClose2} severity="error" sx={{ width: '100%' }} >
-          This question needs more detail. Add more information to ask a clear question, written as a complete sentence..
-        </Alert>
-            </Snackbar> : ""}
-            
-
-            {input2&&topic.length===0?<Snackbar anchorOrigin={{ vertical: 'top',
-          horizontal: 'center',}} open={open3} autoHideDuration={6000} onClose={handleClose3}>
-        <Alert onClose={handleClose3} severity="error" sx={{ width: '100%' }} >Please add at least one topic. </Alert>
-            </Snackbar>:""}
+      
       <Modal
         open={open}
-              onClose={handleClose}
-              className="modal"
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
             >
@@ -430,9 +239,8 @@ const [open3, setOpen3] = React.useState(false);
               type="text"
               placeholder="Start your question with 'What', 'How', 'Why', etc. "
                     />
-                   
             
-                
+                {input===""? <FormHelperText id="my-helper-text">*This question needs more detail. Add more information to ask a clear question, written as a complete sentence..</FormHelperText>:""}   
           </div>
               
 
@@ -459,7 +267,7 @@ const [open3, setOpen3] = React.useState(false);
                 <input type="text" className="placeholder" value={value} onChange={handleChange}  placeholder="Add topics that best describe your question " />
                       
             </div>
-            
+            {topic.length===0?<FormHelperText id="my-helper-text">*Please add at least one topic.</FormHelperText>:""}
                     {topic.map(e => { return <div className="topics" key={e.id} >{e.value} <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -3 25 25" onClick={()=>handleDelete(e.id)}><g id="small_close" class="icon_svg-stroke" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke="#666666" stroke-width="1.5"><path d="M12,6 L12,18" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/><path d="M18,12 L6,12" transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "/></g></svg></div> })}
             <div className="modal__buttons">
               <br/>

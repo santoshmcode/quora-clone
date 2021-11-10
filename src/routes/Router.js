@@ -41,19 +41,6 @@ const Router = () => {
         exact
       />
 
-      <Route path="/" exact>
-        {user ? (
-          <>
-            <Home />
-            <button onClick={() => auth.signOut()}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Redirect to="/login" />
-          </>
-        )}
-      </Route>
-
       {/* User need to loggedIn to access this routes */}
       <PrivateRoute component={PostPage} path="/postPage" exact />
 
