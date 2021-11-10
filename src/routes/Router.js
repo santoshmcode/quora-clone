@@ -10,7 +10,7 @@ import { PostPage } from "../components/post-page/PostPage";
 import { HomeMain } from "../components/HomeContents/HomeMain";
 import { Notification } from "../components/Notifications/Notification";
 import { Navbar } from "../components/Navbar/Navbar";
-import Chat from '../components/sendMessage/Chat'
+import Chat from "../components/sendMessage/Chat";
 
 import PrivateRoute from "./PrivateRoute";
 import { Link } from "react-router-dom";
@@ -41,6 +41,29 @@ const Router = () => {
                 component={Login}
                 exact
             />
+
+
+      {/* User need to loggedIn to access this routes */}
+      <PrivateRoute component={PostPage} path="/postPage" exact />
+
+      <Route exact path="/postPage">
+        <PostPage />
+      </Route>
+      <Route path="/homemaincontainer">
+        <HomeMain />
+      </Route>
+
+      <Route path="/notifications">
+        <Notification />
+      </Route>
+      <Route path="/chat" exact>
+        <Chat />
+      </Route>
+      <Route>
+        <PostData />
+      </Route>
+    </Switch>
+  );
 
             <Route path="/" exact>
                 {user ? (
