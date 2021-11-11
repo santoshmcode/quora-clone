@@ -28,6 +28,7 @@ import ListItemText from "@mui/material/ListItemText"
 import Paper from "@mui/material/Paper"
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { Search } from "./search/Search";
 const style = {
   position: 'absolute',
   top: '50%',
@@ -53,6 +54,10 @@ export const Navbar = () => {
   const [tag,setTag] = useState([]);  // state for all the topics{tags} that are finally added
   const [open, setOpen] = React.useState(false);
   // const [profile,setProfile]=useState(false);
+
+  const [search,setSearch]=useState("")
+
+
   console.log("user",user)
   const handleQuestion = (e) => {
     if (input === "") {
@@ -238,13 +243,16 @@ const [open3, setOpen3] = React.useState(false);
         </div>
           </NavLink>
          
-      </div>
-        <div className="qNav_input">
-          <div className="svgIcon">
-            <SearchIcon />
-            </div>
-        <input type="text" placeholder="Search Quora" />
-      </div>
+        </div>
+        <div>
+          <div className="qNav_input">
+            <div className="svgIcon">
+              <SearchIcon />
+              </div>
+              <input className="NavSearch" type="text" placeholder="Search Quora" onChange={(e)=>{setSearch(e.target.value)} }/>
+          </div>
+          <Search handleOpen={handleOpen} search={ search}/>
+          </div>
       <div className="qNav_Rem">
         <div className="qNav_avatar"  onClick={handleClick1}>
           <Avatar className="Avatar"  sx={{ width: 24, height: 24 }} src={user.photoURL ? user.photoURL:"https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"}/>
