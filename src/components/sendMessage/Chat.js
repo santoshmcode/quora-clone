@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import db, { auth } from '../../config/firebase.config'
 import SendMessage from './SendMessage'
 import './Chat.css'
-import { TextEditor } from '../post-page/Test'
-import Editor from '../post-page/Editor'
+import { TextEditor } from '../post-page/Editor'
+import Editor from '../post-page/temp'
 
 function Chat() {
     const scroll = useRef()

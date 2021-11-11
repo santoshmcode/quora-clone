@@ -1,5 +1,4 @@
 
-import {TextEditor} from './Test'
 
 import React, { useEffect, useState } from "react";
 import "./PostPage.css";
@@ -15,7 +14,7 @@ import {
     IoOpenOutline,
 } from "react-icons/io5";
 import { RiUserFollowLine } from "react-icons/ri";
-import Editor from "./Editor";
+import {TextEditor} from "./Editor";
 import { Sidebar } from "./sidebar/Sidebar";
 import { Message } from "../message/Message";
 import { useParams } from "react-router";
@@ -320,7 +319,6 @@ export const PostPage = () => {
 
 
                 <div className="editor" style={{display: editDis, marginTop: "10px"}}>
-                    {/* <Editor /> */}
                     <TextEditor />
                     
                 </div>
@@ -470,6 +468,7 @@ export const PostPage = () => {
             </div>
 
             <Message />
+            </div>
         </div>
     );
 };
