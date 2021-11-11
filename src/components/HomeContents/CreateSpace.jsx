@@ -36,7 +36,7 @@ export const CreateSpace = () => {
 const Space = styled.div`
 width:11rem;
 height: 34rem;
-top: 2rem;
+top: 5.1rem;
 position: fixed;
 color: #636466;
 font-size: var(--primary-small-label-font-size);
