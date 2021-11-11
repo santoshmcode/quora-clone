@@ -1,229 +1,239 @@
 .outer {
-  width: 60%;
-  display: grid;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  grid-template-columns: 63.5% 34.4%;
-  gap: 11.2%;
+    width: 65%;
+    display: grid;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 63.5% 34.4%;
+    gap: 11.2%;
+}
+.outer-left {
+    width: 110%;
 }
 
 .left-tags {
-  width: 38.7%;
-  display: grid;
-  grid-template-columns: 29.7% 35.5% 19.5% 13.3%;
-  gap: 1.7%;
-  margin-top: 5%;
-  margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.7%;
+    margin-top: 5%;
+    margin-bottom: 15px;
 }
 
 .left-tags > div {
-  height: 25px;
-  border-radius: 3px;
-  background-color: #f7f7f8;
-  color: #636466;
-  font-size: 13px;
-  line-height: 21px;
-  letter-spacing: normal;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  text-align: center;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #f7f7f8;
+    color: #636466;
+    font-size: 13px;
+    line-height: 21px;
+    letter-spacing: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    text-align: center;
+    width: fit-content;
+    padding: 0px 5px;
 }
 
 .left-tags > div:hover {
-  color: #2e69ff;
-  cursor: default;
+    color: #2e69ff;
+    cursor: default;
 }
 
 .left-title {
-  margin-top: 5px;
-  width: 63.6%;
-  height: 28px;
-  font-size: 21px;
-  line-height: 21px;
-  letter-spacing: normal;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  text-align: start;
-  color: #282829;
-  background-color: #ffffff;
-  font-weight: bold;
+    margin-top: 5px;
+    width: 100%;
+    min-height: 28px;
+    font-size: 21px;
+    line-height: 21px;
+    letter-spacing: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    text-align: start;
+    color: #282829;
+    background-color: #ffffff;
+    font-weight: bold;
 }
 
 .left-answer-icon {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.3rem 0 0.3rem -10px;
 }
 
 .answer-icon {
-  display: grid;
-  grid-template-columns: 98px 98px 98px;
-  gap: 2px;
-  margin-top: 40px;
+    /* display: grid;
+    grid-template-columns: 98px 98px 98px;
+    gap: 2px;
+    margin-top: 40px; */
+    display: flex;
+    gap: 8px;
 }
 
 .answer-icon > div {
-  height: 38px;
+    padding: 0px 10px 0 0;
+    height: 38px;
 }
 .answer-icon-inner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: #636466;
-  font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #636466;
+    font-size: 15px;
 }
 .answer-icon-inner > div {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 .answer-icon-inner:hover {
-  border-radius: 40px;
-  background-color: #f7f7f8;
-  cursor: pointer;
+    border-radius: 40px;
+    background-color: #f7f7f8;
+    cursor: pointer;
 }
 .share-icon {
-  width: 180px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+    width: 180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .share-icon > div {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  padding: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .share-icon > div:hover {
-  cursor: pointer;
-  background-color: rgb(243, 241, 241);
+    cursor: pointer;
+    background-color: rgb(243, 241, 241);
 }
 
 .left-ad-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #939598;
-  font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #939598;
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .left-ad-top {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .left-ad-title:hover {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
 }
 .left-ad-header {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  color: #282829;
-  font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    color: #282829;
+    font-weight: bold;
 }
 
 .left-ad-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  color: #282829;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    color: #282829;
 }
 
 .left-ad-button {
-  width: 108px;
-  height: 38px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+    width: 108px;
+    height: 38px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .left-ad-button:hover {
-  border-radius: 40px;
-  background-color: #f7f7f8;
-  cursor: pointer;
+    border-radius: 40px;
+    background-color: #f7f7f8;
+    cursor: pointer;
 }
 .left-answer-no {
-  font-size: 15px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #282829;
-  font-weight: 500;
-  margin-top: 5px;
-  margin-bottom: 5px;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #282829;
+    font-weight: 500;
+    padding: 15px 0;
+    border-top: 1px solid rgb(240, 229, 229);
+    border-bottom: 1px solid rgb(240, 229, 229);
 }
 
 .answer-tag {
-  margin-top: 15px;
-  height: 42px;
-  display: grid;
-  grid-template-columns: 80% 20%;
-  margin-bottom: 10px;
+    margin-top: 15px;
+    height: 42px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    margin-bottom: 10px;
 }
 
 .answer-tag-left {
-  display: grid;
-  grid-template-columns: 10% 80%;
+    display: grid;
+    grid-template-columns: 10% 80%;
 }
 
 .answer-tag-left img {
-  width: 100%;
-  border-radius: 50%;
+    width: 100%;
+    border-radius: 50%;
 }
 .author-tag {
-  font-size: 15px;
-  color: #282829;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 3px;
-  padding-bottom: 5px;
+    font-size: 15px;
+    color: #282829;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 3px;
+    padding-bottom: 5px;
 }
 .author-tag span {
-  font-weight: bold;
+    font-weight: bold;
 }
 .answer-tag-right {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 .answer-tag-right > div {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #ebf0ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ebf0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*-----------------------------------------------------*/
 .editor {
-  box-shadow: -1px 1px 8px #eeebeb;
-  min-height: 300px;
+    box-shadow: -1px 1px 8px #eeebeb;
+    min-height: 300px;
 }
 
 .answer-svg {
-  color: rgb(19, 41, 243) !important;
+    color: rgb(19, 41, 243) !important;
 }
 #top-edit-icon {
-  background-color: white !important;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: white !important;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #top-edit-icon:hover {
-  background-color: rgb(243, 241, 241) !important;
-  cursor: pointer;
+    background-color: rgb(243, 241, 241) !important;
+    cursor: pointer;
 }

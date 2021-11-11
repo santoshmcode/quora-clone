@@ -17,6 +17,7 @@ import { Sidebar } from "./sidebar/Sidebar";
 import { Message } from "../message/Message";
 import { useParams } from "react-router";
 import db from "../../config/firebase.config";
+import AllAnswers from "./AllAnswers";
 
 export const PostPage = () => {
     const { question_id } = useParams();
@@ -103,7 +104,10 @@ export const PostPage = () => {
 
                     <div className="left-answer-icon">
                         <div className="answer-icon">
-                            <div className="answer-icon-inner">
+                            <div
+                                onClick={handleEditDis}
+                                className="answer-icon-inner"
+                            >
                                 <div className="answer-svg">
                                     <svg
                                         width="24px"
@@ -149,7 +153,7 @@ export const PostPage = () => {
                                         </g>
                                     </svg>
                                 </div>
-                                <div onClick={handleEditDis}>Answer</div>
+                                <div>Answer</div>
                             </div>
                             <div className="answer-icon-inner">
                                 <div>
@@ -312,8 +316,6 @@ export const PostPage = () => {
                         </div>
                     </div>
 
-                    <hr />
-
                     <div
                         className="editor"
                         style={{ display: editDis, marginTop: "10px" }}
@@ -321,80 +323,20 @@ export const PostPage = () => {
                         <TextEditor />
                     </div>
 
-                    <div className="left-ad">
+                    <div className="left-answer-no">30 Answers</div>
+                    <AllAnswers />
+                    {/* <div className="left-ad">
                         <div className="left-ad-top">
-                            <div className="left-ad-title">
-                                Ad by Amazon Services
-                            </div>
-                            <div>
-                                <svg
-                                    width="24px"
-                                    height="24px"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <g
-                                        id="overflow"
-                                        class="icon_svg-stroke"
-                                        stroke-width="1.5"
-                                        stroke="#666"
-                                        fill="none"
-                                        fill-rule="evenodd"
-                                    >
-                                        <path d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"></path>
-                                    </g>
-                                </svg>
-                            </div>
+                            <div></div>
                         </div>
-
-                        <div className="left-ad">
-                            <div className="left-ad-top">
-                                <div className="left-ad-title">
-                                    Ad by Amazon Services
-                                </div>
-                                <div>
-                                    <svg
-                                        width="24px"
-                                        height="24px"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <g
-                                            id="overflow"
-                                            class="icon_svg-stroke"
-                                            stroke-width="1.5"
-                                            stroke="#666"
-                                            fill="none"
-                                            fill-rule="evenodd"
-                                        >
-                                            <path d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"></path>
-                                        </g>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="left-ad-header">
-                                All the power, not all the cost
-                            </div>
-                            <div className="left-ad-body">
-                                Discover the best WordPress themes, plugins, UI
-                                kits, icons, templates, mockups, style guides.
-                            </div>
-                            <div className="left-ad-button">
-                                <div>
-                                    <IoOpenOutline></IoOpenOutline>
-                                </div>
-                                <div>Learn more</div>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div className="left-answer-no">30 Answers</div>
-
-                        <hr />
 
                         <div className="answer-tag">
                             <div className="answer-tag-left">
                                 <div>
-                                    <img src="https://freesvg.org/img/Male-Avatar.png" />
+                                    <img
+                                        src="https://freesvg.org/img/Male-Avatar.png"
+                                        alt="https://freesvg.org/img/Male-Avatar.png"
+                                    />
                                 </div>
                                 <div className="author-tag">
                                     <div>
@@ -478,7 +420,7 @@ export const PostPage = () => {
                                 less
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="outer-right">
                     <Sidebar />
