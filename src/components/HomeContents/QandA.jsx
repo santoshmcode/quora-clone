@@ -2,59 +2,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import db from "../../config/firebase.config";
 import { AllComments } from "./AllComments";
+import Answers from "./Answers";
 import { IconGrp } from "./IconGrp";
 
-const dummydata = [
-    {
-        id: "1",
-        userImg:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1200px-Crystal_Clear_kdm_user_female.svg.png",
-        userName: "Kalpan Chaula",
-        Designation: "Software Engineer at google",
-        lastUpdatedDate: "june 2021",
-        heading:
-            "What are the major differences between Python and R for data science?",
-        content:
-            "So eventually, the best ideas from either language find their way into the other making both languages similarly useful & valuable.If you’re too impatient to wait for a particular feature in your language of choice, it's also worth noting that there is excellent language interoperability between Python and R. That is, you can run R code from Python using the rpy2 package, and you can run Python code from R using reticulate. That means that all the features present in one language can be accessed from the other language.",
-        images: [
-            "https://www.speexx.com/wp-content/uploads/icon-think-user-centric-1.png",
-            "https://kinsta.com/wp-content/uploads/2019/10/user-registration-plugins-1024x512.png",
-        ],
-    },
-    {
-        id: "2",
-        userImg:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1200px-Crystal_Clear_kdm_user_female.svg.png",
-        userName: "Kalpan Chaula",
-        Designation: "Software Engineer at google",
-        lastUpdatedDate: "june 2021",
-        heading:
-            "What are the major differences between Python and R for data science?",
-        content:
-            "So eventually, the best ideas from either language find their way into the other making both languages similarly useful & valuable.If you’re too impatient to wait for a particular feature in your language of choice, it's also worth noting that there is excellent language interoperability between Python and R. That is, you can run R code from Python using the rpy2 package, and you can run Python code from R using reticulate. That means that all the features present in one language can be accessed from the other language.",
-        images: [
-            "https://www.speexx.com/wp-content/uploads/icon-think-user-centric-1.png",
-            "https://kinsta.com/wp-content/uploads/2019/10/user-registration-plugins-1024x512.png",
-        ],
-    },
-    {
-        id: "3",
-        userImg:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1200px-Crystal_Clear_kdm_user_female.svg.png",
-        userName: "Kalpan Chaula",
-        Designation: "Software Engineer at google",
-        lastUpdatedDate: "june 2021",
-        heading:
-            "What are the major differences between Python and R for data science?",
-        content:
-            "So eventually, the best ideas from either language find their way into the other making both languages similarly useful & valuable.If you’re too impatient to wait for a particular feature in your language of choice, it's also worth noting that there is excellent language interoperability between Python and R. That is, you can run R code from Python using the rpy2 package, and you can run Python code from R using reticulate. That means that all the features present in one language can be accessed from the other language.",
-        images: [],
-    },
-];
-
 export const QandA = () => {
-    const [unhide, setUnhide] = useState(false);
-    const [ID, setID] = useState("");
     const [showComments, setShowComments] = useState("");
     const [commentToogle, setCommentToogle] = useState(false);
     const [allQuestion, setAllQuestions] = useState([]);
@@ -80,11 +31,6 @@ export const QandA = () => {
         return () => data();
     }, []);
 
-    const handleUnhide = (id) => {
-        setID(id);
-        setUnhide(true);
-    };
-
     const handleComments = (id) => {
         setShowComments(id);
         setCommentToogle(!commentToogle);
@@ -94,11 +40,11 @@ export const QandA = () => {
             {allQuestion.map((e, i) => (
                 <Container
                     key={i}
-                    style={
-                        i === dummydata.length - 1
-                            ? { marginBottom: "2rem" }
-                            : null
-                    }
+                    // style={
+                    //     i === dummydata.length - 1
+                    //         ? { marginBottom: "2rem" }
+                    //         : null
+                    // }
                 >
                     <div className="header">
                         <img src={e.admin_img} alt="q_avatar" />
@@ -110,47 +56,12 @@ export const QandA = () => {
                             <span>address -updated date</span>
                         </div>
                     </div>
-                    {/* <div className="content">
+                    <div className="content">
                         <div className="textContent">
                             <h4>{e.question}</h4>
-                            <p
-                                onClick={() => {
-                                    handleUnhide(e.id);
-                                }}
-                            >
-                                {e.content.slice(0, 154)}
-                                <label
-                                    className={
-                                        unhide && ID === e.id
-                                            ? `hide`
-                                            : `unhide`
-                                    }
-                                >
-                                    (more)
-                                </label>
-                                <span
-                                    className={
-                                        unhide && ID === e.id
-                                            ? `unhide`
-                                            : `hide`
-                                    }
-                                >
-                                    {dummydata[0].content.slice(154)}
-                                </span>
-                            </p>
+                            <Answers questionId={e.key} />
                         </div>
-
-                        {dummydata[0].images.length > 0 &&
-                            e.images.map((el, i) => (
-                                <div key={i} className="imageSection">
-                                    {i === 0 ? (
-                                        <img src={el} alt="" />
-                                    ) : (
-                                        e.id === ID && <img src={el} alt="" />
-                                    )}
-                                </div>
-                            ))}
-                    </div> */}
+                    </div>
                     <IconGrp
                         handleComments={handleComments}
                         toogle={commentToogle}
