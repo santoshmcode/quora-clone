@@ -3,8 +3,10 @@ import { useParams } from "react-router";
 import db from "../../config/firebase.config";
 import { Markup } from "interweave";
 import styled from "styled-components";
+import dayjs from "dayjs";
+import SingleAnswer from "./SingleAnswer";
 
-const AllAnswers = () => {
+const AllAnswers = ({ handleSetAnswerCount }) => {
     const { question_id: questionId } = useParams();
     console.log("questionId:", questionId);
     const [unhide, setUnhide] = useState(false);
@@ -15,12 +17,11 @@ const AllAnswers = () => {
     };
     const [answer, setAnswer] = useState([]);
     console.log("answer:", answer);
-    const [more, setMore] = useState(true);
     // const [answerLength, setAnswerLength] = useState(0);
 
-    const handleExpand = () => {
-        setMore(false);
-    };
+    useEffect(() => {
+        handleSetAnswerCount(answer.length);
+    }, [answer]);
 
     useEffect(() => {
         const dbRef = db.collection(`questions/${questionId}/answers`);
@@ -40,13 +41,6 @@ const AllAnswers = () => {
         return () => data();
     }, []);
 
-    useEffect(() => {
-        if (answer[0]?.answer?.length < 200) {
-            setMore(false);
-        } else {
-        }
-    }, [answer]);
-
     return (
         <div>
             <MainContainer>
@@ -60,32 +54,15 @@ const AllAnswers = () => {
                                         {answer.user_name || answer.user_email}{" "}
                                         <label htmlFor=""> Follow</label>
                                     </p>
-                                    <span>address -updated date</span>
+                                    <span>
+                                        {dayjs(answer.timestamp).format(
+                                            "D MMM"
+                                        )}
+                                    </span>
                                 </div>
                             </div>
                             <>
-                                <AnswerContainer>
-                                    <div className={more ? "container" : ""}>
-                                        <Markup content={answer.answer} />
-                                        {more && (
-                                            <p
-                                                className="more-btn"
-                                                onClick={handleExpand}
-                                            >
-                                                more
-                                            </p>
-                                        )}
-                                    </div>
-                                    <p className="img-container">
-                                        {console.log("ans", answer)}
-                                        {answer.images && more && (
-                                            <img
-                                                src={answer.images[0]}
-                                                alt="img"
-                                            />
-                                        )}
-                                    </p>
-                                </AnswerContainer>
+                                <SingleAnswer answer={answer} />
                             </>
                         </div>
                     );
@@ -97,37 +74,12 @@ const AllAnswers = () => {
 
 export default AllAnswers;
 
-const AnswerContainer = styled.div`
-    margin-top: 1rem;
-    position: relative;
-
-    & .more-btn {
-        position: absolute !important;
-        top: 2.4rem;
-        right: 12px;
-        background: #fff;
-        box-shadow: 20px 0px 10px 5px #fff, -10px 0px 10px 5px #fff;
-        color: royalblue !important;
-        cursor: pointer;
-    }
-
-    & .container {
-        height: 3.5rem;
-        overflow: hidden;
-    }
-
-    .img-container {
-        width: 100%;
-        margin-top: 1rem;
-        /* border: 1px solid #000; */
-
-        img {
-            width: 100%;
-        }
-    }
-`;
-
 const MainContainer = styled.div`
+    & > div {
+        border-bottom: 1px solid #e6e6e6;
+        padding: 2rem 0;
+    }
+
     .header {
         padding-top: 1rem;
         /* padding-left: 1rem; */

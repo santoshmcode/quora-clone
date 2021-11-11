@@ -27,25 +27,9 @@ export const PostPage = () => {
     const [editDis, setEditDis] = useState("none");
     const [check, setCheck] = useState(true);
     const [question, setQuestion] = useState({});
+    const [answerCount, setAnswerCount] = useState(0);
 
     useEffect(() => {
-        // const dbRef = db.collection(`questions/${question_id}`);
-        // const data = dbRef.onSnapshot((querySnapshot) => {
-        //     const questions = [];
-        //     querySnapshot.forEach((doc) => {
-        //         questions.push({
-        //             ...doc.data(), //spread operator
-        //             key: doc.id, // `id` given to us by Firebase
-        //             createdAt: doc.data().createdAt,
-        //         });
-        //     });
-        //     console.log(questions);
-        // });
-        // // return cleanup function
-        // return () => data();
-
-        //get doc form firebase
-
         db.collection("questions")
             .doc(question_id)
             .get()
@@ -61,6 +45,10 @@ export const PostPage = () => {
                 console.log("Error getting document", err);
             });
     }, []);
+
+    const handleSetAnswerCount = (count) => {
+        setAnswerCount(count);
+    };
 
     const handleDisplay = () => {
         setDisplay("block");
@@ -323,104 +311,8 @@ export const PostPage = () => {
                         <TextEditor />
                     </div>
 
-                    <div className="left-answer-no">30 Answers</div>
-                    <AllAnswers />
-                    {/* <div className="left-ad">
-                        <div className="left-ad-top">
-                            <div></div>
-                        </div>
-
-                        <div className="answer-tag">
-                            <div className="answer-tag-left">
-                                <div>
-                                    <img
-                                        src="https://freesvg.org/img/Male-Avatar.png"
-                                        alt="https://freesvg.org/img/Male-Avatar.png"
-                                    />
-                                </div>
-                                <div className="author-tag">
-                                    <div>
-                                        <span>Sumit Gupta</span>, Co-founder and
-                                        CEO at CoinDCX
-                                    </div>
-                                    <div style={{ fontSize: "13px" }}>
-                                        Answered Apr 12
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="answer-tag-right">
-                                <div>
-                                    <RiUserFollowLine></RiUserFollowLine>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            A cryptocurrency or crypto is a digital currency and
-                            you can think of it as a digital dollar or digital
-                            INR as instead of paper money, it uses an online
-                            ledger for transactions. They provide a medium of
-                            exchange and allow individuals to directly make
-                            payments to each other.
-                            <br />
-                            <br />
-                            Bitcoin is a type of cryptocurrency, and is a
-                            digital form of cash that was invented in 2009 by an
-                            entity called Satoshi Nakamoto. How cryptocurrency
-                            works is on a technology called Blockchain which
-                            provides a peer-to-peer network and transactions are
-                            recorded on the blocks of the blockchain.
-                            <br />
-                            <br />
-                            <span style={{ display: btn }}>
-                                The decentralized nature of...
-                                <button
-                                    onClick={handleDisplay}
-                                    style={{ textDecoration: "underline" }}
-                                >
-                                    more
-                                </button>
-                            </span>
-                        </div>
-
-                        <div style={{ display: display }}>
-                            The decentralized nature of the blockchain makes
-                            cryptocurrencies immune to the old ways of
-                            government control and interference. Transactions
-                            are secured as the technology uses cryptography and
-                            are validated using a consensus mechanism such as
-                            Proof-of-stake. Various computers that are connected
-                            to a blockchain verify transactions on the network
-                            using these consensus mechanisms. Upon successful
-                            verification of transactions, these transactions are
-                            grouped and chained together as blocks in the
-                            blockchain. This process of creating new blocks is
-                            known as mining and the people doing it are called
-                            miners. Miners are rewarded for their effort and
-                            resources spent on mining, in the form of crypto
-                            paybacks. Hence, the technology provides an
-                            incentive for people to maintain the blockchain and
-                            establish its authenticity.
-                            <img
-                                src="https://qphs.fs.quoracdn.net/main-qimg-d2cc101eedb9805d6d2471296791bd16"
-                                width="100%"
-                                alt="asd"
-                            />
-                            Source: MLSDev The technology is such that it
-                            provides:
-                            <ul>
-                                <li>Transparency of transaction data</li>
-                                <li>Faster transfer of payments</li>
-                            </ul>
-                            Lower transaction costs Secure payments{" "}
-                            <button
-                                onClick={handleLess}
-                                style={{ textDecoration: "underline" }}
-                            >
-                                less
-                            </button>
-                        </div>
-                    </div> */}
+                    <div className="left-answer-no">{answerCount} Answers</div>
+                    <AllAnswers handleSetAnswerCount={handleSetAnswerCount} />
                 </div>
                 <div className="outer-right">
                     <Sidebar />
