@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import "./PostPage.css";
 import { FiEdit2, FiRss } from "react-icons/fi";
@@ -14,12 +12,11 @@ import {
     IoOpenOutline,
 } from "react-icons/io5";
 import { RiUserFollowLine } from "react-icons/ri";
-import {TextEditor} from "./Editor";
+import { TextEditor } from "./Editor";
 import { Sidebar } from "./sidebar/Sidebar";
 import { Message } from "../message/Message";
 import { useParams } from "react-router";
 import db from "../../config/firebase.config";
-
 
 export const PostPage = () => {
     const { question_id } = useParams();
@@ -317,17 +314,11 @@ export const PostPage = () => {
 
                     <hr />
 
-
-                <div className="editor" style={{display: editDis, marginTop: "10px"}}>
-                    <TextEditor />
-                    
-                </div>
-
-                <div className="left-ad">
-                    <div className="left-ad-top">
-                        <div className="left-ad-title">Ad by Amazon Services</div>
-                        <div><svg width="24px" height="24px" viewBox="0 0 24 24"><g id="overflow" class="icon_svg-stroke" stroke-width="1.5" stroke="#666" fill="none" fill-rule="evenodd"><path d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"></path></g></svg></div>
-
+                    <div
+                        className="editor"
+                        style={{ display: editDis, marginTop: "10px" }}
+                    >
+                        <TextEditor />
                     </div>
 
                     <div className="left-ad">
@@ -354,121 +345,147 @@ export const PostPage = () => {
                                 </svg>
                             </div>
                         </div>
-                        <div className="left-ad-header">
-                            All the power, not all the cost
-                        </div>
-                        <div className="left-ad-body">
-                            Discover the best WordPress themes, plugins, UI
-                            kits, icons, templates, mockups, style guides.
-                        </div>
-                        <div className="left-ad-button">
-                            <div>
-                                <IoOpenOutline></IoOpenOutline>
-                            </div>
-                            <div>Learn more</div>
-                        </div>
-                    </div>
 
-                    <hr />
-
-                    <div className="left-answer-no">30 Answers</div>
-
-                    <hr />
-
-                    <div className="answer-tag">
-                        <div className="answer-tag-left">
-                            <div>
-                                <img src="https://freesvg.org/img/Male-Avatar.png" />
-                            </div>
-                            <div className="author-tag">
+                        <div className="left-ad">
+                            <div className="left-ad-top">
+                                <div className="left-ad-title">
+                                    Ad by Amazon Services
+                                </div>
                                 <div>
-                                    <span>Sumit Gupta</span>, Co-founder and CEO
-                                    at CoinDCX
-                                </div>
-                                <div style={{ fontSize: "13px" }}>
-                                    Answered Apr 12
+                                    <svg
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <g
+                                            id="overflow"
+                                            class="icon_svg-stroke"
+                                            stroke-width="1.5"
+                                            stroke="#666"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <path d="M5,14 C3.8954305,14 3,13.1045695 3,12 C3,10.8954305 3.8954305,10 5,10 C6.1045695,10 7,10.8954305 7,12 C7,13.1045695 6.1045695,14 5,14 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M19,14 C17.8954305,14 17,13.1045695 17,12 C17,10.8954305 17.8954305,10 19,10 C20.1045695,10 21,10.8954305 21,12 C21,13.1045695 20.1045695,14 19,14 Z"></path>
+                                        </g>
+                                    </svg>
                                 </div>
                             </div>
-                        </div>
-                        <div className="answer-tag-right">
-                            <div>
-                                <RiUserFollowLine></RiUserFollowLine>
+                            <div className="left-ad-header">
+                                All the power, not all the cost
+                            </div>
+                            <div className="left-ad-body">
+                                Discover the best WordPress themes, plugins, UI
+                                kits, icons, templates, mockups, style guides.
+                            </div>
+                            <div className="left-ad-button">
+                                <div>
+                                    <IoOpenOutline></IoOpenOutline>
+                                </div>
+                                <div>Learn more</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div>
-                        A cryptocurrency or crypto is a digital currency and you
-                        can think of it as a digital dollar or digital INR as
-                        instead of paper money, it uses an online ledger for
-                        transactions. They provide a medium of exchange and
-                        allow individuals to directly make payments to each
-                        other.
-                        <br />
-                        <br />
-                        Bitcoin is a type of cryptocurrency, and is a digital
-                        form of cash that was invented in 2009 by an entity
-                        called Satoshi Nakamoto. How cryptocurrency works is on
-                        a technology called Blockchain which provides a
-                        peer-to-peer network and transactions are recorded on
-                        the blocks of the blockchain.
-                        <br />
-                        <br />
-                        <span style={{ display: btn }}>
-                            The decentralized nature of...
+                        <hr />
+
+                        <div className="left-answer-no">30 Answers</div>
+
+                        <hr />
+
+                        <div className="answer-tag">
+                            <div className="answer-tag-left">
+                                <div>
+                                    <img src="https://freesvg.org/img/Male-Avatar.png" />
+                                </div>
+                                <div className="author-tag">
+                                    <div>
+                                        <span>Sumit Gupta</span>, Co-founder and
+                                        CEO at CoinDCX
+                                    </div>
+                                    <div style={{ fontSize: "13px" }}>
+                                        Answered Apr 12
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="answer-tag-right">
+                                <div>
+                                    <RiUserFollowLine></RiUserFollowLine>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            A cryptocurrency or crypto is a digital currency and
+                            you can think of it as a digital dollar or digital
+                            INR as instead of paper money, it uses an online
+                            ledger for transactions. They provide a medium of
+                            exchange and allow individuals to directly make
+                            payments to each other.
+                            <br />
+                            <br />
+                            Bitcoin is a type of cryptocurrency, and is a
+                            digital form of cash that was invented in 2009 by an
+                            entity called Satoshi Nakamoto. How cryptocurrency
+                            works is on a technology called Blockchain which
+                            provides a peer-to-peer network and transactions are
+                            recorded on the blocks of the blockchain.
+                            <br />
+                            <br />
+                            <span style={{ display: btn }}>
+                                The decentralized nature of...
+                                <button
+                                    onClick={handleDisplay}
+                                    style={{ textDecoration: "underline" }}
+                                >
+                                    more
+                                </button>
+                            </span>
+                        </div>
+
+                        <div style={{ display: display }}>
+                            The decentralized nature of the blockchain makes
+                            cryptocurrencies immune to the old ways of
+                            government control and interference. Transactions
+                            are secured as the technology uses cryptography and
+                            are validated using a consensus mechanism such as
+                            Proof-of-stake. Various computers that are connected
+                            to a blockchain verify transactions on the network
+                            using these consensus mechanisms. Upon successful
+                            verification of transactions, these transactions are
+                            grouped and chained together as blocks in the
+                            blockchain. This process of creating new blocks is
+                            known as mining and the people doing it are called
+                            miners. Miners are rewarded for their effort and
+                            resources spent on mining, in the form of crypto
+                            paybacks. Hence, the technology provides an
+                            incentive for people to maintain the blockchain and
+                            establish its authenticity.
+                            <img
+                                src="https://qphs.fs.quoracdn.net/main-qimg-d2cc101eedb9805d6d2471296791bd16"
+                                width="100%"
+                                alt="asd"
+                            />
+                            Source: MLSDev The technology is such that it
+                            provides:
+                            <ul>
+                                <li>Transparency of transaction data</li>
+                                <li>Faster transfer of payments</li>
+                            </ul>
+                            Lower transaction costs Secure payments{" "}
                             <button
-                                onClick={handleDisplay}
+                                onClick={handleLess}
                                 style={{ textDecoration: "underline" }}
                             >
-                                more
+                                less
                             </button>
-                        </span>
-                    </div>
-
-                    <div style={{ display: display }}>
-                        The decentralized nature of the blockchain makes
-                        cryptocurrencies immune to the old ways of government
-                        control and interference. Transactions are secured as
-                        the technology uses cryptography and are validated using
-                        a consensus mechanism such as Proof-of-stake. Various
-                        computers that are connected to a blockchain verify
-                        transactions on the network using these consensus
-                        mechanisms. Upon successful verification of
-                        transactions, these transactions are grouped and chained
-                        together as blocks in the blockchain. This process of
-                        creating new blocks is known as mining and the people
-                        doing it are called miners. Miners are rewarded for
-                        their effort and resources spent on mining, in the form
-                        of crypto paybacks. Hence, the technology provides an
-                        incentive for people to maintain the blockchain and
-                        establish its authenticity.
-                        <img
-                            src="https://qphs.fs.quoracdn.net/main-qimg-d2cc101eedb9805d6d2471296791bd16"
-                            width="100%"
-                            alt="asd"
-                        />
-                        Source: MLSDev The technology is such that it provides:
-                        <ul>
-                            <li>Transparency of transaction data</li>
-                            <li>Faster transfer of payments</li>
-                        </ul>
-                        Lower transaction costs Secure payments{" "}
-                        <button
-                            onClick={handleLess}
-                            style={{ textDecoration: "underline" }}
-                        >
-                            less
-                        </button>
+                        </div>
                     </div>
                 </div>
-
                 <div className="outer-right">
                     <Sidebar />
                 </div>
             </div>
 
             <Message />
-            </div>
         </div>
     );
 };
