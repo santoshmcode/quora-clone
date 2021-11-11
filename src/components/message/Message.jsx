@@ -70,7 +70,8 @@ const MessageCont = styled.div`
     font-size: 23px;
     cursor: pointer;
     z-index: 1000;
-    background-color :#f4f0f0;
+    background-color :white;
+    border: 1px solid #f4f0f0;
     &:hover {
         background-color :#f4f0f0;
         cursor: pointer;
@@ -84,6 +85,8 @@ const MessageCont = styled.div`
     justify-content: space-between;
     flex-direction: coloumn;
     align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
     &:hover {
         background-color :#f4f0f0;
         cursor: pointer;
@@ -94,7 +97,7 @@ const MessageCont = styled.div`
     font-size: 18px;
     color: #282829;
     font-family: sans-serif;
-    padding-left: 5px;
+    padding-left: 16px;
  `;
 
  const MessageIcon = styled.div`

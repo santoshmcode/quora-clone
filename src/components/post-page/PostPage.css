@@ -60,6 +60,7 @@
   display: grid;
   grid-template-columns: 98px 98px 98px;
   gap: 2px;
+  margin-top: 40px;
 }
 
 .answer-icon > div {
