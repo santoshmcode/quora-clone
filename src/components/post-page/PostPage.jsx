@@ -10,6 +10,7 @@ import {RiUserFollowLine} from 'react-icons/ri';
 import Editor from './Editor'
 import { Sidebar } from './sidebar/Sidebar';
 import { Message } from '../message/Message';
+import {TextEditor} from './Test'
 
 
 export const PostPage = () => {
@@ -91,7 +92,9 @@ export const PostPage = () => {
                 <hr />
 
                 <div className="editor" style={{display: editDis, marginTop: "10px"}}>
-                    <Editor />
+                    {/* <Editor /> */}
+                    <TextEditor />
+                    
                 </div>
 
                 <div className="left-ad">

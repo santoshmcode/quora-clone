@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import db, { auth } from '../../config/firebase.config'
 import SendMessage from './SendMessage'
 import './Chat.css'
+import { TextEditor } from '../post-page/Test'
+import Editor from '../post-page/Editor'
 
 function Chat() {
     const scroll = useRef()
@@ -15,6 +17,7 @@ function Chat() {
         <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div className='chat-left'>
                 <div className='chat-left-top'>
+                    
                     <div>
                         <h3>Messages</h3>
                     </div>

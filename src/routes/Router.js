@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 import { Link } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
 import { PostData } from "../components/dbTest/PostData";
+import { TextEditor } from "../components/post-page/Test";
 
 const Router = () => {
   const user = useSelector(selectUser);
