@@ -187,7 +187,6 @@ const [open3, setOpen3] = React.useState(false);
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/250px-Quora_logo_2015.svg.png"
           alt=""
         />
-       
       </div>
        </Link>
       <div className="qNav_icons" >
@@ -431,7 +430,7 @@ const [open3, setOpen3] = React.useState(false);
               type="text"
               placeholder="Start your question with 'What', 'How', 'Why', etc. "
                     />
-                   
+
             
                 
           </div>
