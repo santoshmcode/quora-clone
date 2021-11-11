@@ -19,63 +19,63 @@ import { PostData } from "../components/dbTest/PostData";
 import { TextEditor } from "../components/post-page/Test";
 
 const Router = () => {
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        dispatch(login(user));
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, [dispatch]);
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                dispatch(login(user));
+            } else {
+                dispatch(logout());
+            }
+        });
+    }, [dispatch]);
 
-  return (
-    <Switch>
-      {/* Restricted Route will not allow LoggedIn User to access login page */}
-      <RestrictedRoute
-        restricted={true}
-        path="/login"
-        component={Login}
-        exact
-      />
+    return (
+        <Switch>
+            {/* Restricted Route will not allow LoggedIn User to access login page */}
+            <RestrictedRoute
+                restricted={true}
+                path="/login"
+                component={Login}
+                exact
+            />
 
-      <Route path="/" exact>
-        {user ? (
-          <>
-            <Home />
-            <button onClick={() => auth.signOut()}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Redirect to="/login" />
-          </>
-        )}
-      </Route>
+            <Route path="/" exact>
+                {user ? (
+                    <>
+                        <Home />
+                        <button onClick={() => auth.signOut()}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <Redirect to="/login" />
+                    </>
+                )}
+            </Route>
 
-      {/* User need to loggedIn to access this routes */}
-      <PrivateRoute component={PostPage} path="/postPage" exact />
+            {/* User need to loggedIn to access this routes */}
+            {/* <PrivateRoute component={PostPage} path="/postPage" exact /> */}
 
-      <Route exact path="/postPage">
-        <PostPage />
-      </Route>
-      <Route path="/homemaincontainer">
-        <HomeMain />
-      </Route>
+            <Route exact path="/question/:question_id">
+                <PostPage />
+            </Route>
+            <Route path="/homemaincontainer">
+                <HomeMain />
+            </Route>
 
-      <Route path="/notifications">
-        <Notification />
-      </Route>
-      <Route path="/chat" exact>
-        <Chat />
-      </Route>
-      <Route>
-        <PostData />
-      </Route>
-    </Switch>
-  );
+            <Route path="/notifications">
+                <Notification />
+            </Route>
+            <Route path="/chat" exact>
+                <Chat />
+            </Route>
+            <Route>
+                <PostData />
+            </Route>
+        </Switch>
+    );
 };
 
 export default Router;
