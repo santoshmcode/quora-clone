@@ -4,6 +4,7 @@ import db from "../../config/firebase.config";
 import { AllComments } from "./AllComments";
 import Answers from "./Answers";
 import { IconGrp } from "./IconGrp";
+import { Link } from "react-router-dom";
 
 export const QandA = () => {
     const [showComments, setShowComments] = useState("");
@@ -38,14 +39,7 @@ export const QandA = () => {
     return (
         <>
             {allQuestion.map((e, i) => (
-                <Container
-                    key={i}
-                    // style={
-                    //     i === dummydata.length - 1
-                    //         ? { marginBottom: "2rem" }
-                    //         : null
-                    // }
-                >
+                <Container key={i}>
                     <div className="header">
                         <img src={e.admin_img} alt="q_avatar" />
                         <div className="user">
@@ -58,7 +52,11 @@ export const QandA = () => {
                     </div>
                     <div className="content">
                         <div className="textContent">
-                            <h4>{e.question}</h4>
+                            <Link to={`question/${e.key}`}>
+                                {" "}
+                                <h4>{e.question}</h4>
+                            </Link>
+
                             <Answers questionId={e.key} />
                         </div>
                     </div>
@@ -118,7 +116,13 @@ const Container = styled.div`
             padding: 1rem;
             h4 {
                 color: #282829;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
+
             p {
                 position: relative;
                 cursor: pointer;
