@@ -55,14 +55,9 @@ const Router = () => {
                 )}
             </Route>
 
-            {/* User need to loggedIn to access this routes */}
-            {/* <PrivateRoute component={PostPage} path="/postPage" exact /> */}
-
             <Route exact path="/question/:question_id">
+                <Navbar />
                 <PostPage />
-            </Route>
-            <Route path="/homemaincontainer">
-                <HomeMain />
             </Route>
 
             <Route path="/notifications">

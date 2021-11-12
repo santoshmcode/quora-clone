@@ -5,6 +5,9 @@ import { AllComments } from "./AllComments";
 import Answers from "./Answers";
 import { IconGrp } from "./IconGrp";
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 export const QandA = () => {
     const [showComments, setShowComments] = useState("");
@@ -47,7 +50,14 @@ export const QandA = () => {
                                 {e.admin_name || e.admin_email} -
                                 <label htmlFor=""> Follow</label>
                             </p>
-                            <span>address -updated date</span>
+
+                            <span>
+                                {dayjs(Date.now() - e.created_at).format("hh") /
+                                    1 <
+                                48
+                                    ? dayjs(e.created_at).from(Date.now())
+                                    : dayjs(e.created_at).format("D MMM")}
+                            </span>
                         </div>
                     </div>
                     <div className="content">
@@ -60,12 +70,14 @@ export const QandA = () => {
                             <Answers questionId={e.key} />
                         </div>
                     </div>
-                    <IconGrp
-                        handleComments={handleComments}
-                        toogle={commentToogle}
-                        showComments={showComments}
-                        id={e.id}
-                    />
+                    <div className="icon-group-container">
+                        <IconGrp
+                            handleComments={handleComments}
+                            toogle={commentToogle}
+                            showComments={showComments}
+                            id={e.id}
+                        />
+                    </div>
 
                     {e.id === showComments && commentToogle && <AllComments />}
                 </Container>
@@ -82,6 +94,12 @@ const Container = styled.div`
     border: 0.5px solid rgb(222, 224, 225);
     box-shadow: 0px 0px 5px rgb(222, 224, 225);
     border-radius: 3px;
+
+    .icon-group-container {
+        padding: 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+
     .header {
         padding-top: 1rem;
         padding-left: 1rem;

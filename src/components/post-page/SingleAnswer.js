@@ -4,6 +4,7 @@ import db from "../../config/firebase.config";
 import { Markup } from "interweave";
 import styled from "styled-components";
 import dayjs from "dayjs";
+import { IconGrp } from "../../components/HomeContents/IconGrp";
 
 const SingleAnswer = ({ answer }) => {
     console.log("answer:", answer);
@@ -19,6 +20,14 @@ const SingleAnswer = ({ answer }) => {
         } else {
         }
     }, [answer]);
+
+    const [commentToogle, setCommentToogle] = useState(false);
+    const [showComments, setShowComments] = useState("");
+
+    const handleComments = (id) => {
+        setShowComments(id);
+        setCommentToogle(!commentToogle);
+    };
 
     return (
         <div>
@@ -38,6 +47,12 @@ const SingleAnswer = ({ answer }) => {
                     )}
                 </p>
             </AnswerContainer>
+            <IconGrp
+                handleComments={handleComments}
+                toogle={commentToogle}
+                showComments={showComments}
+                id={answer.key}
+            />
         </div>
     );
 };
@@ -66,6 +81,7 @@ const AnswerContainer = styled.div`
     .img-container {
         width: 100%;
         margin-top: 1rem;
+        margin-bottom: 1rem;
         /* border: 1px solid #000; */
 
         img {

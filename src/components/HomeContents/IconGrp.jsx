@@ -6,6 +6,8 @@ import { RiShareForwardLine } from "react-icons/ri";
 import { MyComment } from "./MyComment";
 import { GoArrowUp } from "react-icons/go";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
 export const IconGrp = ({ handleComments, id, showComments, toogle }) => {
     const [upvotes, setUpvotes] = useState(false);
     const [countUpvotes, setCountUpVotes] = useState(12);
@@ -15,8 +17,6 @@ export const IconGrp = ({ handleComments, id, showComments, toogle }) => {
             ? setCountUpVotes((pre) => pre - 1)
             : setCountUpVotes((prev) => prev + 1);
     };
-
-    console.log(showComments, "showc", id);
 
     return (
         <>
@@ -76,11 +76,14 @@ export const IconGrp = ({ handleComments, id, showComments, toogle }) => {
 
 const Icongroup = styled.div`
     height: 30px;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 1rem; */
 
     .leftIcons {
-        padding-left: 1rem;
+        /* padding-left: 1rem; */
         margin-bottom: 0.5rem;
         display: flex;
         .hide {
