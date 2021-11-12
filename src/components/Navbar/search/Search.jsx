@@ -97,6 +97,12 @@ export const Search = ({search,handleOpen}) => {
                     return e.question.match(new RegExp(dummy[4], "gi")) != null ? 1 : 0;
                 if (dummy.length >= 6&&dummy[5]!=="")
                     return e.question.match(new RegExp(dummy[5], "gi")) != null ? 1 : 0;
+                if (dummy.length >= 6&&dummy[6]!=="")
+                    return e.question.match(new RegExp(dummy[6], "gi")) != null ? 1 : 0;
+               if (dummy.length >= 7&&dummy[7]!=="")
+                    return e.question.match(new RegExp(dummy[7], "gi")) != null ? 1 : 0;
+              if (dummy.length >= 8&&dummy[8]!=="")
+                    return e.question.match(new RegExp(dummy[8], "gi")) != null ? 1 : 0;
                 return false;
                         
             })
@@ -117,7 +123,7 @@ export const Search = ({search,handleOpen}) => {
              {result.length !== 0 && <Dropdown>
             {
               result.map((e, i) => 
-                i <= 4 && <Link to={`/answers/${e.id}`} key={e.id} >
+                i <= 4 && <Link to={`/question/${e.id}`} key={e.id} >
                   <div className="searcher">
                     <p>{e.question}</p>
                   </div>
