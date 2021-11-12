@@ -9,7 +9,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
-export const QandA = () => {
+export const QandA = ({ flag }) => {
     const [showComments, setShowComments] = useState("");
     const [commentToogle, setCommentToogle] = useState(false);
     const [allQuestion, setAllQuestions] = useState([]);
@@ -26,7 +26,13 @@ export const QandA = () => {
                 });
             });
             setAllQuestions(
-                questions.sort((a, b) => b.createdAt - a.createdAt)
+                !flag
+                    ? questions
+                          .filter((el) => el.isAnswered === true)
+                          .sort((a, b) => b.createdAt - a.createdAt)
+                    : questions
+                          .filter((el) => el.isAnswered === false)
+                          .sort((a, b) => b.createdAt - a.createdAt)
             );
             console.log("questions:", questions);
         });

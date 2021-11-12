@@ -18,6 +18,7 @@ import RestrictedRoute from "./RestrictedRoute";
 import { PostData } from "../components/dbTest/PostData";
 import { TextEditor } from "../components/post-page/Editor";
 import { Error } from "../components/error/Error.jsx";
+import Unanswered from "../components/unanswered/Unanswered";
 const Router = () => {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
@@ -95,7 +96,7 @@ const Router = () => {
                 {user ? (
                     <>
                         <Navbar />
-                        <h1>Answers</h1>
+                        <Unanswered />
                     </>
                 ) : (
                     <Redirect to="/login" />

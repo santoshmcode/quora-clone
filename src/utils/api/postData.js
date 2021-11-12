@@ -30,3 +30,8 @@ export const deleteData = async (ref, id) => {
     const dbRef = db.collection(ref);
     return await dbRef.doc(id).delete();
 };
+
+export const updateData = async (ref, id, data) => {
+    const dbRef = db.collection(ref);
+    return await dbRef.doc(id).update(data);
+};
