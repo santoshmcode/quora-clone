@@ -17,66 +17,69 @@ import { Link } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
 import { PostData } from "../components/dbTest/PostData";
 import { TextEditor } from "../components/post-page/Editor";
-
+import { Error } from "../components/error/Error.jsx";
 const Router = () => {
-    const user = useSelector(selectUser);
-    const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                dispatch(login(user));
-            } else {
-                dispatch(logout());
-            }
-        });
-    }, [dispatch]);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(login(user));
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
 
-    return (
-        <Switch>
-            {/* Restricted Route will not allow LoggedIn User to access login page */}
-            <RestrictedRoute
-                restricted={true}
-                path="/login"
-                component={Login}
-                exact
-            />
+  return (
+    <Switch>
+      {/* Restricted Route will not allow LoggedIn User to access login page */}
+      <RestrictedRoute
+        restricted={true}
+        path="/login"
+        component={Login}
+        exact
+      />
 
-            <Route path="/" exact>
-                {user ? (
-                    <>
-                        <Home />
-                    </>
-                ) : (
-                    <>
-                        <Redirect to="/login" />
-                    </>
-                )}
-            </Route>
 
-            <Route exact path="/question/:question_id">
-                <Navbar />
-                <PostPage />
-            </Route>
+      <Route path="/home" exact>
+        {user ? (
+          <>
+            <Home />
+            <button onClick={() => auth.signOut()}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Redirect to="/login" />
+          </>
+        )}
+      </Route>
 
-            <Route path="/notifications">
-                <Navbar />
-                <Notification />
-            </Route>
-            <Route path="/chat" exact>
-                <Navbar />
-                <Chat />
-            </Route>
-            <Route path="/answers" exact>
-                <Navbar />
-                <h1>Answers</h1>
-            </Route>
-            <Route>
-                <Navbar />
-                <p>Page Not found</p>
-            </Route>
-        </Switch>
-    );
+
+      <Route exact path="/question/:question_id">
+        <Navbar />
+        <PostPage />
+      </Route>
+
+      <Route path="/notifications" exact>
+        <Navbar />
+        <Notification />
+      </Route>
+      <Route path="/chat" exact>
+        <Navbar />
+        <Chat />
+      </Route>
+      <Route path="/answers" exact>
+        <Navbar />
+        <h1>Answers</h1>
+      </Route>
+      <Route>
+        <Navbar />
+        <Error />
+      </Route>
+    </Switch>
+  );
 };
 
 export default Router;
