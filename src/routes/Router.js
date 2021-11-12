@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import RestrictedRoute from "./RestrictedRoute";
 import { PostData } from "../components/dbTest/PostData";
 import { TextEditor } from "../components/post-page/Editor";
-
+import { Error } from "../components/error/Error.jsx";
 const Router = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const Router = () => {
         <PostPage />
       </Route>
 
-      <Route path="/notifications">
+      <Route path="/notifications" exact>
         <Navbar />
         <Notification />
       </Route>
@@ -74,7 +74,7 @@ const Router = () => {
       </Route>
       <Route>
         <Navbar />
-        <p>Page Not found</p>
+        <Error />
       </Route>
     </Switch>
   );
