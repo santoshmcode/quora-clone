@@ -5,6 +5,8 @@ import { Markup } from "interweave";
 import styled from "styled-components";
 import dayjs from "dayjs";
 import SingleAnswer from "./SingleAnswer";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const AllAnswers = ({ handleSetAnswerCount }) => {
     const { question_id: questionId } = useParams();
@@ -55,9 +57,15 @@ const AllAnswers = ({ handleSetAnswerCount }) => {
                                         <label htmlFor=""> Follow</label>
                                     </p>
                                     <span>
-                                        {dayjs(answer.timestamp).format(
-                                            "D MMM"
-                                        )}
+                                        {dayjs(
+                                            Date.now() - answer.timestamp
+                                        ).format("hh") < 48
+                                            ? dayjs(answer.timestamp).from(
+                                                  Date.now()
+                                              )
+                                            : dayjs(answer.timestamp).format(
+                                                  "D MMM"
+                                              )}
                                     </span>
                                 </div>
                             </div>
@@ -77,7 +85,7 @@ export default AllAnswers;
 const MainContainer = styled.div`
     & > div {
         border-bottom: 1px solid #e6e6e6;
-        padding: 2rem 0;
+        padding: 1rem 0;
     }
 
     .header {

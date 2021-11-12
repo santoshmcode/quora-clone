@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { selectUser } from "../../features/userSlice";
+import { useSelector } from "react-redux";
 
 export const MyComment = () => {
+    const user = useSelector(selectUser);
     const [comment, setComment] = useState("");
 
     const handleChange = (e) => {
@@ -10,7 +13,11 @@ export const MyComment = () => {
     return (
         <Comment>
             <img
-                src="https://st2.depositphotos.com/1032921/5237/v/950/depositphotos_52374307-stock-illustration-blue-profile-icon.jpg"
+                src={
+                    user
+                        ? user.photoURL
+                        : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png "
+                }
                 alt=""
             />
             <input
