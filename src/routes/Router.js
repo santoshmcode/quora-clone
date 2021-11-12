@@ -46,7 +46,6 @@ const Router = () => {
                 {user ? (
                     <>
                         <Home />
-                        <button onClick={() => auth.signOut()}>Logout</button>
                     </>
                 ) : (
                     <>

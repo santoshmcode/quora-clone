@@ -20,6 +20,7 @@ export const HomeMain = () => {
 const StyledHome = styled.div`
     display: flex;
     position: relative;
+    justify-content: center;
     width: 80%;
     margin: auto;
     background-color: var(--primary-body-background-color);

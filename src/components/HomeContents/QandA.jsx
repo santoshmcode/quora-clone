@@ -88,7 +88,7 @@ export const QandA = () => {
 
 const Container = styled.div`
     width: 35.625rem;
-    margin-left: 12.5rem;
+    margin-left: 1rem;
     margin-top: 1rem;
     background-color: #ffffff;
     border: 0.5px solid rgb(222, 224, 225);
