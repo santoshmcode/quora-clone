@@ -6,7 +6,6 @@ import { HomeMain } from "./HomeMain";
 const Home = () => {
     return (
         <>
-            <Navbar />
             <HomeMain />
             <Message />
         </>

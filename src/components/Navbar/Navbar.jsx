@@ -186,7 +186,7 @@ export const Navbar = () => {
     return (
         <div className="Nav">
             <div className="qNav">
-                <Link to="/">
+                <Link to="/home">
                     <div className="qNav_logo">
                         <img
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/250px-Quora_logo_2015.svg.png"
@@ -196,7 +196,7 @@ export const Navbar = () => {
                 </Link>
                 <div className="qNav_icons">
                     <NavLink
-                        to="/"
+                        to="/home"
                         className={(isActive) =>
                             "nav-link" + (isActive ? " selected" : "")
                         }
