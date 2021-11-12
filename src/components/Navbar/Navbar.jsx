@@ -373,15 +373,16 @@ export const Navbar = () => {
         open={open1}
         onClose={handleClose1}
         onClick={handleClose1}> */}
-            <MenuItem>
-              <Avatar
-                src={
-                  user.photoURL
-                    ? user.photoURL
-                    : "https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"
-                }
-              />
-            </MenuItem>
+
+            <Avatar
+              style={{ marginLeft: "20px" }}
+              src={
+                user.photoURL
+                  ? user.photoURL
+                  : "https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"
+              }
+            />
+
             <MenuItem>
               <ListItemText>
                 <b>{user.displayName}</b>
@@ -410,54 +411,137 @@ export const Navbar = () => {
             <Divider />
             <MenuItem>
               <ListItemIcon>
-                <PersonAdd fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      d="M7 4.5h8a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-3l-3.5 4v-4H7a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3Zm13 8a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-2v2l-2-2h-2"
+                      class="icon_svg-stroke"
+                      stroke-width="1.5"
+                      stroke="#666"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <g class="icon_svg-fill_as_stroke" fill="#666">
+                      <circle cx="8" cy="10.5" r="1"></circle>
+                      <circle cx="11" cy="10.5" r="1"></circle>
+                      <circle cx="14" cy="10.5" r="1"></circle>
+                    </g>
+                  </g>
+                </svg>
               </ListItemIcon>
               <ListItemText> Messages</ListItemText>
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
-                <Settings fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9.5 17 5v12L3 12.5v-3Zm4.853 4.56L9.5 19H7l-1.947-5.84 2.8.9ZM19.5 7.5l2-1-2 1Zm0 3.5H22h-2.5Zm0 3.5 2 1-2-1ZM8 10.4l6-1.9-6 1.9Z"
+                    class="icon_svg-stroke"
+                    stroke="#666"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
               </ListItemIcon>
               Create Ad
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
-                <Settings fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M11.5 4v16m3.75-13H9.625C8.175 7 7 8.12 7 9.5S8.175 12 9.625 12h3.75C14.825 12 16 13.12 16 14.5S14.825 17 13.375 17H7"
+                    class="icon_svg-stroke"
+                    stroke="#666"
+                    stroke-width="1.5"
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
               </ListItemIcon>
               Monetization
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
-                <Settings fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M5 12h3v8H5v-8Zm5.5-8h3v16h-3V4ZM16 7h3v13h-3V7Z"
+                    class="icon_svg-stroke icon_svg-fill"
+                    stroke-width="1.5"
+                    stroke="#666"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
               </ListItemIcon>
               Your Content {"&"} stats
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
-                <Settings fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <g
+                    class="icon_svg-stroke"
+                    stroke-width="1.5"
+                    stroke="#666"
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      class="icon_svg-fill"
+                      d="m10.501 16-5.499 4L5 8h11v12z"
+                    ></path>
+                    <path d="M8 5.923V5h11v12l-.997-.725"></path>
+                  </g>
+                </svg>
               </ListItemIcon>
               Bookmarks
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
-                <Settings fontSize="small" />
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M20.743 10.757h0a1.5 1.5 0 0 1 0 2.122l-5.728 5.727-2.756.638.635-2.76 5.727-5.727a1.5 1.5 0 0 1 2.122 0Zm-3.182 1.061 2.121 2.121M9 19H5V5h13v3M8 9h7m-7 3h5.5M8 15h2.5"
+                    class="icon_svg-stroke"
+                    stroke-width="1.5"
+                    stroke="#666"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
               </ListItemIcon>
               Drafts
             </MenuItem>
             <Divider />
-            <MenuItem>
+            <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <ListItemText>Dark mode</ListItemText>
+              <Typography
+                className="darkmode"
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontSize: "xx-small" }}
+              >
+                OFF
+              </Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <ListItemText>Settings</ListItemText>
             </MenuItem>
-            <MenuItem>
+            <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <ListItemText>Languages</ListItemText>
             </MenuItem>
-            <MenuItem>
+            <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <ListItemText>Help</ListItemText>
             </MenuItem>
-            <MenuItem onClick={() => auth.signOut()}>
+            <MenuItem
+              onClick={() => auth.signOut()}
+              sx={{ height: 30, fontSize: "5" }}
+            >
               <ListItemText>Logout</ListItemText>
             </MenuItem>
 
@@ -658,33 +742,36 @@ export const Navbar = () => {
                     {topic.map((e) => {
                       return (
                         <div className="topics" key={e.id}>
-                          {e.value}{" "}
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24px"
-                            height="24px"
-                            viewBox="0 -3 25 25"
-                            onClick={() => handleDelete(e.id)}
-                          >
-                            <g
-                              id="small_close"
-                              class="icon_svg-stroke"
-                              fill="none"
-                              fill-rule="evenodd"
-                              stroke-linecap="round"
-                              stroke="#666666"
-                              stroke-width="1.5"
+                          <div>{e.value} </div>
+                          <div className="topic_close">
+                            <svg
+                              marginLeft="15px"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24px"
+                              height="24px"
+                              viewBox="0 -3 25 25"
+                              onClick={() => handleDelete(e.id)}
                             >
-                              <path
-                                d="M12,6 L12,18"
-                                transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "
-                              />
-                              <path
-                                d="M18,12 L6,12"
-                                transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "
-                              />
-                            </g>
-                          </svg>
+                              <g
+                                id="small_close"
+                                class="icon_svg-stroke"
+                                fill="none"
+                                fill-rule="evenodd"
+                                stroke-linecap="round"
+                                stroke="#666666"
+                                stroke-width="1.5"
+                              >
+                                <path
+                                  d="M12,6 L12,18"
+                                  transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "
+                                />
+                                <path
+                                  d="M18,12 L6,12"
+                                  transform="translate(12.000000, 12.000000) rotate(45.000000) translate(-12.000000, -12.000000) "
+                                />
+                              </g>
+                            </svg>
+                          </div>
                         </div>
                       );
                     })}
