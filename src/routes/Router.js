@@ -61,13 +61,20 @@ const Router = () => {
             </Route>
 
             <Route path="/notifications">
+                <Navbar />
                 <Notification />
             </Route>
             <Route path="/chat" exact>
+                <Navbar />
                 <Chat />
             </Route>
+            <Route path="/answers" exact>
+                <Navbar />
+                <h1>Answers</h1>
+            </Route>
             <Route>
-                <PostData />
+                <Navbar />
+                <p>Page Not found</p>
             </Route>
         </Switch>
     );
