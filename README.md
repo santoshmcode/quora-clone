@@ -19,3 +19,27 @@ npm i
 ```
 npm start
 ```
+---
+
+Team Members :handshake:
+- [Asutosh Behera](https://github.com/asutoshb)
+- [Santosh Mane](https://github.com/santoshmcode)
+- [Ananthu Ashokkumar](https://github.com/ananthu-asokkumar)
+- [Pranali Malkar](https://github.com/Pranali-5)
+---
+
+Main Pages :books:
+- [x] Signup/Signin Page
+- [x] Home / Question Page
+- [x] Answer Page
+- [x] Following Page
+- [x] Add Question Page    
+---
+
+Technologies Used
+- React
+- Redux
+- Firebase
+- MaterialUI
+---
+
