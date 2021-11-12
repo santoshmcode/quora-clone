@@ -21,14 +21,14 @@ npm start
 ```
 ---
 
-Team Members :handshake:
+# Team Members :handshake:
 - [Asutosh Behera](https://github.com/asutoshb)
 - [Santosh Mane](https://github.com/santoshmcode)
 - [Ananthu Ashokkumar](https://github.com/ananthu-asokkumar)
 - [Pranali Malkar](https://github.com/Pranali-5)
 ---
 
-Main Pages :books:
+# Main Pages :books:
 - [x] Signup/Signin Page
 - [x] Home / Question Page
 - [x] Answer Page
@@ -36,7 +36,7 @@ Main Pages :books:
 - [x] Add Question Page    
 ---
 
-Technologies Used
+# Technologies Used :hammer_and_wrench:
 - React
 - Redux
 - Firebase
