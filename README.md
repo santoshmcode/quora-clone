@@ -43,3 +43,7 @@ npm start
 - MaterialUI
 ---
 
+# Screenshots of pages :framed_picture:
+- Home Page
+![Screenshot (1132)](https://user-images.githubusercontent.com/86410005/141511091-c2782167-1adb-425a-bfa2-cb84a68a03ef.png)
+
