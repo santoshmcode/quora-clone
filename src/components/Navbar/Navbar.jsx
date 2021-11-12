@@ -29,6 +29,8 @@ import Paper from "@mui/material/Paper";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { postData } from "../../utils/api/postData";
+import { Search } from "./search/Search";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -53,7 +55,9 @@ export const Navbar = () => {
   const [question, setQuestion] = useState(""); //state for finally added question
   const [tag, setTag] = useState([]); // state for all the topics{tags} that are finally added
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = useState("");
   // const [profile,setProfile]=useState(false);
+
   const handleQuestion = (e) => {
     if (input === "") {
       handleClick2();
@@ -292,11 +296,21 @@ export const Navbar = () => {
             </div>
           </NavLink>
         </div>
-        <div className="qNav_input">
-          <div className="svgIcon">
-            <SearchIcon />
+        <div>
+          <div className="qNav_input">
+            <div className="svgIcon">
+              <SearchIcon />
+            </div>
+            <input
+              className="NavSearch"
+              type="text"
+              placeholder="Search Quora"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
           </div>
-          <input type="text" placeholder="Search Quora" />
+          <Search handleOpen={handleOpen} search={search} />
         </div>
         <div className="qNav_Rem">
           <div className="qNav_avatar" onClick={handleClick1}>

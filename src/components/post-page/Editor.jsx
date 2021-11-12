@@ -1,106 +1,128 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
+import styled from "styled-components";
+import { postData } from "../../utils/api/postData";
 
 import "./Editor.css";
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import draftToHtml from "draftjs-to-html";
-import { postData } from "../../utils/api/postData";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
+import { useParams } from "react-router";
 
-export default class TextEditor extends Component {
-    state = {
-        editorState: EditorState.createEmpty(),
-        answerState: EditorState.createEmpty(),
+export const TextEditor = () => {
+    const { question_id } = useParams();
+    const user = useSelector(selectUser);
+    console.log("user:", user);
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [answerState, setAnswerState] = useState(EditorState.createEmpty());
+    console.log("answerState:", answerState);
+
+    const onEditorStateChange = (editorState) => {
+        setEditorState(editorState);
+        setAnswerState(
+            draftToHtml(convertToRaw(editorState.getCurrentContent()))
+        );
     };
 
-    onEditorStateChange = (editorState) => {
-        this.setState({
-            editorState: editorState,
-            answerState: draftToHtml(
-                convertToRaw(editorState.getCurrentContent())
-            ),
+    const handlePostAnswer = () => {
+        postData(`questions/${question_id}/answers`, {
+            answer: answerState,
+            timestamp: Date.now(),
+            up_votes: 0,
+            down_votes: 0,
+            user_img:
+                user.photoURL ||
+                "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
+            user_name: user.displayName,
+            user_email: user.email,
+            image: [],
         });
+        setEditorState(null);
+        setAnswerState(null);
     };
 
-    render() {
-        function uploadImageCallBack(file) {
-            return new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://api.imgur.com/3/image");
-                xhr.setRequestHeader(
-                    "Authorization",
-                    "Client-ID 99fce9f6241279f"
-                );
-                const data = new FormData();
-                data.append("image", file);
-                xhr.send(data);
-                xhr.addEventListener("load", () => {
-                    const response = JSON.parse(xhr.responseText);
-                    console.log(response);
-                    resolve(response);
-                });
-                xhr.addEventListener("error", () => {
-                    const error = JSON.parse(xhr.responseText);
-                    console.log(error);
-                    reject(error);
-                });
+    function uploadImageCallBack(file) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://api.imgur.com/3/image");
+            xhr.setRequestHeader("Authorization", "Client-ID 99fce9f6241279f");
+            const data = new FormData();
+            data.append("image", file);
+            xhr.send(data);
+            xhr.addEventListener("load", () => {
+                const response = JSON.parse(xhr.responseText);
+                console.log(response);
+                resolve(response);
             });
-        }
+            xhr.addEventListener("error", () => {
+                const error = JSON.parse(xhr.responseText);
+                console.log(error);
+                reject(error);
+            });
+        });
+    }
 
-        const { editorState, answerState } = this.state;
+    // const { editorState, answerState } = this.state;
 
-        console.log(answerState);
-        return (
-            <div>
-                <div className="edit-author-credentials">
-                    <div className="edit-author-image">
-                        <div>
-                            <img
-                                src="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png"
-                                alt="author"
-                            />
-                        </div>
-                    </div>
-                    <div className="edit-author-body">
-                        <div>Add your Name</div>
-                        <div style={{ color: "#636466" }}>
-                            Edit your Credentials
-                        </div>
+    console.log("Answer", answerState);
+
+    return (
+        <div className="editor-container">
+            <div className="edit-author-credentials">
+                <div className="edit-author-image">
+                    <div>
+                        <img
+                            src={
+                                user?.photoURL ||
+                                "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png"
+                            }
+                            alt="author"
+                        />
                     </div>
                 </div>
-                <Editor
-                    editorState={editorState}
-                    toolbarClassName="toolbarClassName"
-                    wrapperClassName="wrapperClassName"
-                    editorClassName="editorClassName"
-                    onEditorStateChange={this.onEditorStateChange}
-                    placeholder="Add Your Answer"
-                    toolbar={{
-                        inline: { inDropdown: true },
-                        list: { inDropdown: true },
-                        textAlign: { inDropdown: true },
-                        link: { inDropdown: true },
-                        history: { inDropdown: true },
-                        image: {
-                            uploadCallback: uploadImageCallBack,
-                            alt: { present: true, mandatory: true },
-                            defaultSize: {
-                                height: "auto",
-                                width: "100%",
-                            },
-                            uploadEnabled: true,
-                            inputAccept:
-                                "image/gif,image/jpeg,image/jpg,image/png,image/svg",
-                        },
-                    }}
-                />
-
-                <div className="button-edit">
-                    <div className="post-answer">Post</div>
-                    <div className="draft-answer">Save Draft</div>
+                <div className="edit-author-body">
+                    <div>{user?.displayName || user?.email}</div>
+                    <div style={{ color: "#636466" }}>
+                        Edit your Credentials
+                    </div>
                 </div>
             </div>
-        );
-    }
-}
+            <Editor
+                editorState={editorState}
+                toolbarClassName="toolbarClassName"
+                wrapperClassName="wrapperClassName"
+                editorClassName="editorClassName"
+                onEditorStateChange={onEditorStateChange}
+                placeholder="Add Your Answer"
+                toolbar={{
+                    inline: { inDropdown: true },
+                    list: { inDropdown: true },
+                    textAlign: { inDropdown: true },
+                    link: { inDropdown: true },
+                    history: { inDropdown: true },
+                    image: {
+                        uploadCallback: uploadImageCallBack,
+                        alt: { present: true, mandatory: true },
+                        defaultSize: {
+                            height: "auto",
+                            width: "100%",
+                        },
+                        uploadEnabled: true,
+                        inputAccept:
+                            "image/gif,image/jpeg,image/jpg,image/png,image/svg",
+                    },
+                }}
+            />
+
+            <div className="button-edit">
+                <div className="post-answer" onClick={handlePostAnswer}>
+                    Post
+                </div>
+                <div className="draft-answer">Save Draft</div>
+            </div>
+        </div>
+    );
+};
