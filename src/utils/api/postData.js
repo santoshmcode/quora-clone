@@ -5,6 +5,11 @@ export const postData = async (ref, data) => {
     return await dbRef.doc().set(data);
 };
 
+export const getSingleData = async (ref, id) => {
+    const dbRef = db.collection(ref).doc(id);
+    return await dbRef.get();
+};
+
 export const getData = (ref) => {
     let dataArray = [];
     const dbRef = db.collection(ref);

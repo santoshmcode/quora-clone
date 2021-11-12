@@ -73,16 +73,14 @@ export const QandA = ({ flag }) => {
                                 <h4>{e.question}</h4>
                             </Link>
 
-                            <Answers questionId={e.key} />
+                            <Answers
+                                questionId={e.key}
+                                handleComments={handleComments}
+                                toogle={commentToogle}
+                                showComments={showComments}
+                                id={e.key}
+                            />
                         </div>
-                    </div>
-                    <div className="icon-group-container">
-                        <IconGrp
-                            handleComments={handleComments}
-                            toogle={commentToogle}
-                            showComments={showComments}
-                            id={e.id}
-                        />
                     </div>
 
                     {e.id === showComments && commentToogle && <AllComments />}
