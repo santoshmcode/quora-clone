@@ -42,6 +42,7 @@ const Router = () => {
         exact
       />
 
+
       <Route path="/home" exact>
         {user ? (
           <>
@@ -54,6 +55,7 @@ const Router = () => {
           </>
         )}
       </Route>
+
 
       <Route exact path="/question/:question_id">
         <Navbar />
