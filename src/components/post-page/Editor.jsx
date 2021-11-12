@@ -96,7 +96,7 @@ export const TextEditor = () => {
                 wrapperClassName="wrapperClassName"
                 editorClassName="editorClassName"
                 onEditorStateChange={onEditorStateChange}
-                placeholder="Add Your Answer"
+                placeholder="  Add Your Answer"
                 toolbar={{
                     inline: { inDropdown: true },
                     list: { inDropdown: true },
@@ -114,7 +114,8 @@ export const TextEditor = () => {
                         inputAccept:
                             "image/gif,image/jpeg,image/jpg,image/png,image/svg",
                     },
-                }}
+                }} 
+                style={{paddingLeft: '10px'}}
             />
 
             <div className="button-edit">
