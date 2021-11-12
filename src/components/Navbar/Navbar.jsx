@@ -390,33 +390,32 @@ export const Navbar = () => {
                         />
 
                         <MenuItem>
-                            <ListItemText>
-                                <b>{user?.displayName}</b>
-                            </ListItemText>
-
-                            <Typography variant="body2" color="text.secondary">
-                                <svg
-                                    width="24px"
-                                    height="24px"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <g
-                                        id="chevron_right"
-                                        class="icon_svg-stroke"
-                                        stroke="#666"
-                                        stroke-width="1.5"
-                                        fill="none"
-                                        fill-rule="evenodd"
-                                        stroke-linecap="round"
+                            <div className="text-menu-name">
+                                <div>{user?.displayName}</div>
+                                <div>
+                                    <svg
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
                                     >
-                                        <polyline
-                                            id="chevron"
-                                            transform="translate(12.500000, 12.002415) scale(1, -1) rotate(-90.000000) translate(-12.500000, -12.002415) "
-                                            points="5.49758463 8.50241537 12.4975846 15.5024154 19.5024154 8.50241537"
-                                        ></polyline>
-                                    </g>
-                                </svg>
-                            </Typography>
+                                        <g
+                                            id="chevron_right"
+                                            class="icon_svg-stroke"
+                                            stroke="#666"
+                                            stroke-width="1.5"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                            stroke-linecap="round"
+                                        >
+                                            <polyline
+                                                id="chevron"
+                                                transform="translate(12.500000, 12.002415) scale(1, -1) rotate(-90.000000) translate(-12.500000, -12.002415) "
+                                                points="5.49758463 8.50241537 12.4975846 15.5024154 19.5024154 8.50241537"
+                                            ></polyline>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
                         </MenuItem>
                         <Divider />
                         <MenuItem>
@@ -454,7 +453,7 @@ export const Navbar = () => {
                                     </g>
                                 </svg>
                             </ListItemIcon>
-                            <ListItemText> Messages</ListItemText>
+                            <div className="text-menu"> Messages</div>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
@@ -469,7 +468,7 @@ export const Navbar = () => {
                                     ></path>
                                 </svg>
                             </ListItemIcon>
-                            Create Ad
+                            <div className="text-menu"> Create Ad</div>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
@@ -486,7 +485,7 @@ export const Navbar = () => {
                                     ></path>
                                 </svg>
                             </ListItemIcon>
-                            Monetization
+                            <div className="text-menu"> Monetization</div>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
@@ -502,7 +501,10 @@ export const Navbar = () => {
                                     ></path>
                                 </svg>
                             </ListItemIcon>
-                            Your Content {"&"} stats
+                            <div className="text-menu">
+                                {" "}
+                                Your Content {"&"} stats
+                            </div>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
@@ -524,7 +526,7 @@ export const Navbar = () => {
                                     </g>
                                 </svg>
                             </ListItemIcon>
-                            Bookmarks
+                            <div className="text-menu"> Bookmarks</div>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
@@ -540,34 +542,38 @@ export const Navbar = () => {
                                     ></path>
                                 </svg>
                             </ListItemIcon>
-                            Drafts
+                            <div className="text-menu"> Drafts</div>
                         </MenuItem>
                         <Divider />
-                        <MenuItem sx={{ height: 30, fontSize: "5" }}>
-                            <ListItemText>Dark mode</ListItemText>
-                            <Typography
-                                className="darkmode"
-                                variant="body2"
-                                color="text.secondary"
-                                sx={{ fontSize: "xx-small" }}
-                            >
-                                OFF
-                            </Typography>
+                        <MenuItem
+                            sx={{ height: 30, fontSize: "5", width: "100%" }}
+                        >
+                            <div className="sub-flex">
+                                <div className="text-sub-menu "> Dark mode</div>
+                                <Typography
+                                    className="darkmode"
+                                    variant="body2"
+                                    color="text.secondary"
+                                    sx={{ fontSize: "xx-small" }}
+                                >
+                                    OFF
+                                </Typography>
+                            </div>
                         </MenuItem>
                         <MenuItem sx={{ height: 30, fontSize: "5" }}>
-                            <ListItemText>Settings</ListItemText>
+                            <div className="text-sub-menu "> Settings</div>
                         </MenuItem>
                         <MenuItem sx={{ height: 30, fontSize: "5" }}>
-                            <ListItemText>Languages</ListItemText>
+                            <div className="text-sub-menu ">Languages</div>
                         </MenuItem>
                         <MenuItem sx={{ height: 30, fontSize: "5" }}>
-                            <ListItemText>Help</ListItemText>
+                            <div className="text-sub-menu "> Help</div>
                         </MenuItem>
                         <MenuItem
                             onClick={() => auth.signOut()}
                             sx={{ height: 30, fontSize: "5" }}
                         >
-                            <ListItemText>Logout</ListItemText>
+                            <div className="text-sub-menu "> Logout</div>
                         </MenuItem>
                     </Menu>
 
