@@ -50,8 +50,10 @@ export const QandA = () => {
                                 {e.admin_name || e.admin_email} -
                                 <label htmlFor=""> Follow</label>
                             </p>
+
                             <span>
-                                {dayjs(Date.now() - e.created_at).format("hh") <
+                                {dayjs(Date.now() - e.created_at).format("hh") /
+                                    1 <
                                 48
                                     ? dayjs(e.created_at).from(Date.now())
                                     : dayjs(e.created_at).format("D MMM")}
