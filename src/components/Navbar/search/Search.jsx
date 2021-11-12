@@ -152,7 +152,7 @@ background-color: white;
 left: 31.4rem;
 top: 2.8rem;
   .searcher{
-    min-height:2.5rem;
+    height:2.5rem;
     border-bottom: 1px solid grey;
     width: 100%;
     padding-left: 1rem;
@@ -160,11 +160,12 @@ top: 2.8rem;
     align-items: center;
     margin: auto;
     cursor: pointer;
+    overflow-y: hidden;
     &:hover {
       background-color: #f1f0f0;
     }
     p {
-      padding-top: .5rem;
+      padding-top: .8rem;
       cursor: pointer;
     }
   }
