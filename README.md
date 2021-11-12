@@ -45,5 +45,7 @@ npm start
 
 # Screenshots of pages :framed_picture:
 - Home Page
-![Screenshot (1132)](https://user-images.githubusercontent.com/86410005/141511091-c2782167-1adb-425a-bfa2-cb84a68a03ef.png)
+
+![Home Page](https://user-images.githubusercontent.com/86410005/141511605-c18d1b61-4a2c-451c-bc47-284827ac9f2f.png)
+
 
