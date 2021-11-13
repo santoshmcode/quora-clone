@@ -28,10 +28,11 @@ function Chat() {
                 </div>
                 <div className="chat-left-bottom">
                     <div className="chat-left-img">
-                        <img src="https://img.lovepik.com/element/40144/0477.png_300.png" alt="avatart" />
+                        <img src="https://lh3.googleusercontent.com/a-/AOh14Gg0kJ_5yUHzwbioPpj010sKYOHJpTySS9XKzz7r=s96-c" alt="avatart" />
                     </div>
                     <div className="chat-left-text">
-                        <div><h3>Name Surname</h3></div>
+                        <div><h3>Ananthu Asokkumar
+</h3></div>
                         <div>Thur</div>
                     </div>
                 </div>
@@ -40,10 +41,11 @@ function Chat() {
                 <div className='chat-right-top'>
                     
                         <div className="chat-left-img">
-                            <img src="https://img.lovepik.com/element/40144/0477.png_300.png" alt="avatart" />
+                            <img src="https://lh3.googleusercontent.com/a-/AOh14Gg0kJ_5yUHzwbioPpj010sKYOHJpTySS9XKzz7r=s96-c" alt="avatart" />
                         </div>
                         <div className="chat-left-text">
-                            <div><h3>Name Surname</h3></div>
+                            <div><h3>Ananthu Asokkumar
+</h3></div>
                             <div><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" class="icon_svg-stroke" stroke-width="1.5" stroke="#666" fill="none"></path></svg></div>
                         </div>
                     
@@ -52,8 +54,8 @@ function Chat() {
                 {messages.map(({ id, text, photoURL, uid }) => (
                     <div>
                         <div key={id} className={`msg ${uid === auth.currentUser.uid ? 'sent' : 'received'}`}>
-                            <img src={photoURL} alt="" />
-                            <p>{text}</p>
+                            <img id="avatar" src={photoURL} alt="" />
+                            <p id="message-text">{text}</p>
                         </div>
                     </div>
                 ))}

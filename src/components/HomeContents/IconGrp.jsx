@@ -31,11 +31,11 @@ export const IconGrp = ({
         setBefore(countUpvotes);
     };
 
-    useEffect(() => {
-        getSingleData(`questions/${id}/answers`, answerKey).then((res) => {
-            setBefore(res.data().up_votes);
-        });
-    }, [countUpvotes]);
+    // useEffect(() => {
+    //     getSingleData(`questions/${id}/answers`, answerKey).then((res) => {
+    //         setBefore(res.data().up_votes);
+    //     });
+    // }, [countUpvotes]);
 
     useEffect(() => {
         if (flag) {
