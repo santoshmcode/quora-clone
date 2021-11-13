@@ -59,3 +59,19 @@ npm start
 - Home Page
 
 ![Home Page](https://user-images.githubusercontent.com/86410005/141511605-c18d1b61-4a2c-451c-bc47-284827ac9f2f.png)
+
+
+- Question Page
+
+![Question Page](https://user-images.githubusercontent.com/86410005/141654016-ca8293e8-4ab6-4a5e-98a0-7a99c79b7d66.png)
+
+- Chat Page 
+
+![Chat Page](https://user-images.githubusercontent.com/86410005/141654030-2a4cb051-09be-4b65-acc6-af0990d1655d.png)
+
+- Add Question Page
+
+![Add question](https://user-images.githubusercontent.com/86410005/141654041-5931e9c6-0e52-4d1e-a17d-9b6c249c5c24.png)
+
+
+
