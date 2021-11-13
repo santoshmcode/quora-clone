@@ -31,7 +31,7 @@ export const TextEditor = () => {
         postData(`questions/${question_id}/answers`, {
             answer: answerState,
             timestamp: Date.now(),
-            up_votes: 0,
+            up_votes: Math.floor(Math.random() * 10),
             down_votes: 0,
             user_img:
                 user.photoURL ||

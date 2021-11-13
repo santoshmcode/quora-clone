@@ -15,35 +15,36 @@ export const IconGrp = ({
     showComments,
     toogle,
     answerKey,
+    vote_count,
 }) => {
+    const [before, setBefore] = useState(vote_count);
+    const [flag, setFlag] = useState(false);
     const [upvotes, setUpvotes] = useState(false);
-    const [countUpvotes, setCountUpVotes] = useState(0);
+    const [countUpvotes, setCountUpVotes] = useState(
+        vote_count === before ? vote_count : before
+    );
+    console.log("countUpvotes:", countUpvotes);
     const handleClick = async () => {
+        setFlag(true);
+        upvotes ? setCountUpVotes((e) => e - 1) : setCountUpVotes((e) => e + 1);
         setUpvotes(!upvotes);
-        upvotes
-            ? setCountUpVotes((pre) => pre - 1)
-            : setCountUpVotes((prev) => prev + 1);
-        await setUpdatedData();
+        setBefore(countUpvotes);
     };
 
     useEffect(() => {
         getSingleData(`questions/${id}/answers`, answerKey).then((res) => {
-            setCountUpVotes(res.data().up_votes);
+            setBefore(res.data().up_votes);
         });
-    }, []);
+    }, [countUpvotes]);
 
-    const setUpdatedData = () => {
-        const data = updateData(`questions/${id}/answers`, answerKey, {
-            up_votes: countUpvotes,
-        });
-    };
-
-    // useEffect(() => {
-    //     const data = updateData(`questions/${id}/answers`, answerKey, {
-    //         up_votes: countUpvotes,
-    //     });
-    //     return () => data;
-    // }, [countUpvotes]);
+    useEffect(() => {
+        if (flag) {
+            updateData(`questions/${id}/answers`, answerKey, {
+                up_votes: countUpvotes,
+            });
+            setFlag(false);
+        }
+    }, [countUpvotes]);
     return (
         <>
             <Icongroup>

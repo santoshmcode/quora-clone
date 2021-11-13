@@ -79,6 +79,7 @@ const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
                                 showComments={showComments}
                                 id={id}
                                 answerKey={answer[0].key}
+                                vote_count={answer[0].up_votes}
                             />
                         </>
                     )}
