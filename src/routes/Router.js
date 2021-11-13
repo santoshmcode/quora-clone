@@ -52,7 +52,7 @@ const Router = () => {
                 {user ? (
                     <>
                         <Navbar />
-                        <Home />}
+                        <Home />
                     </>
                 ) : (
                     <>
