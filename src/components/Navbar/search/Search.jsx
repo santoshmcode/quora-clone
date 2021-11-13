@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-export const Search = ({ search, handleOpen }) => {
+export const Search = ({ search, handleOpen,setSearch }) => {
     const [searchData, setsearchData] = useState([]);
     const [result, setResult] = useState([]);
 
@@ -131,7 +131,7 @@ export const Search = ({ search, handleOpen }) => {
                     {result.map(
                         (e, i) =>
                             i <= 5 && (
-                                <Link to={`/question/${e.id}`} key={e.id}>
+                                <Link to={`/question/${e.id}`} key={e.id} onClick={() => { setSearch("") }}>
                                     <div className="searcher">
                                         <p>{e.question}</p>
                                     </div>

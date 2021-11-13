@@ -309,7 +309,7 @@ export const Navbar = () => {
                 setSearch(e.target.value);
               }}
             />
-            <Search handleOpen={handleOpen} search={search} />
+            <Search handleOpen={handleOpen} setSearch={setSearch} search={search} />
           </div>
         </div>
         <div className="qNav_Rem">
