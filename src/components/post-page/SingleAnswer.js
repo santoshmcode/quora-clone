@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import { IconGrp } from "../../components/HomeContents/IconGrp";
 
 const SingleAnswer = ({ answer, id }) => {
-    console.log("answer:", answer);
+    // console.log("answer:", answer);
     const [more, setMore] = useState(true);
 
     const handleExpand = () => {
@@ -41,7 +41,7 @@ const SingleAnswer = ({ answer, id }) => {
                     )}
                 </div>
                 <p className="img-container">
-                    {console.log("ans", answer)}
+                    {/* {console.log("ans", answer)} */}
                     {answer.images?.length > 0 && more && (
                         <img src={answer.images[0]} alt="img" />
                     )}

@@ -15,7 +15,6 @@ const Login = () => {
         try {
             await auth.signInWithPopup(googleProvider);
         } catch (error) {
-            // console.log(error);
         }
     };
 
@@ -23,7 +22,6 @@ const Login = () => {
         try {
             await auth.signInWithPopup(facebookProvider);
         } catch (error) {
-            // console.log(error);
         }
     };
 
@@ -48,7 +46,6 @@ const Login = () => {
                     setPassword("");
                 }
             } else {
-                // console.log(error);
                 setFormError(error.message.replace("Firebase:", ""));
                 setPassword("");
             }

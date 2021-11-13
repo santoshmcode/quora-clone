@@ -34,10 +34,8 @@ export const QandA = ({ flag }) => {
                           .filter((el) => el.isAnswered === false)
                           .sort((a, b) => b.createdAt - a.createdAt)
             );
-            console.log("questions:", questions);
         });
 
-        // return cleanup function
         return () => data();
     }, []);
 

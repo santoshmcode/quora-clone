@@ -428,7 +428,7 @@ export const Navbar = () => {
                   </g>
                 </svg>
               </ListItemIcon>
-              <div className="text-menu"> Messages</div>
+              <Link to='/chat'><div className="text-menu"> Messages</div></Link>
             </MenuItem>
             <MenuItem>
               <ListItemIcon>

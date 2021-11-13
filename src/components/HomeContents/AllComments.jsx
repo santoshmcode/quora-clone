@@ -19,7 +19,6 @@ export const AllComments = () => {
     const handleUnhide = (id) => {
         setID(id);
         setUnhide(true);
-        console.log(id);
     };
 
     return (

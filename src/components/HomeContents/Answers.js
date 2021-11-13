@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { IconGrp } from "./IconGrp";
 
 const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
-    console.log("questionId:", questionId);
     const [unhide, setUnhide] = useState(false);
     const [ID, setID] = useState("");
     const handleUnhide = (id) => {
@@ -14,7 +13,6 @@ const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
     };
     const [answer, setAnswer] = useState([]);
     const [more, setMore] = useState(true);
-    // const [answerLength, setAnswerLength] = useState(0);
 
     const handleExpand = () => {
         setMore(false);
@@ -64,7 +62,6 @@ const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
                                     )}
                                 </div>
                                 <p className="img-container">
-                                    {console.log("ans", answer[0])}
                                     {answer[0].images && more && (
                                         <img
                                             src={answer[0].images[0]}
@@ -83,27 +80,7 @@ const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
                             />
                         </>
                     )}
-                    {/* <p
-                        onClick={() => {
-                            handleUnhide(e.id);
-                        }}
-                    >
-                        {e.content.slice(0, 154)}
-                        <label
-                            className={
-                                unhide && ID === e.id ? `hide` : `unhide`
-                            }
-                        >
-                            (more)
-                        </label>
-                        <span
-                            className={
-                                unhide && ID === e.id ? `unhide` : `hide`
-                            }
-                        >
-                            {dummydata[0].content.slice(154)}
-                        </span>
-                    </p> */}
+                   
                 </>
             </>
         </div>

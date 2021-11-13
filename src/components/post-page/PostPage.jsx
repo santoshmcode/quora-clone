@@ -21,13 +21,11 @@ import AllAnswers from "./AllAnswers";
 
 export const PostPage = () => {
     const { question_id } = useParams();
-    console.log("question_id:", question_id);
     const [display, setDisplay] = useState("none");
     const [btn, setBtn] = useState("block");
     const [editDis, setEditDis] = useState("none");
     const [check, setCheck] = useState(true);
     const [question, setQuestion] = useState({});
-    console.log("question:", question);
     const [answerCount, setAnswerCount] = useState(0);
     const [questionId, setQuestionId] = useState();
 
@@ -37,15 +35,14 @@ export const PostPage = () => {
             .get()
             .then((doc) => {
                 if (!doc.exists) {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 } else {
                     setQuestion(doc.data());
                     setQuestionId(doc.id);
-                    console.log("Document data:", doc.data());
                 }
             })
             .catch((err) => {
-                console.log("Error getting document", err);
+                // console.log("Error getting document", err);
             });
     }, []);
 

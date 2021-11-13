@@ -15,10 +15,8 @@ import { useParams } from "react-router";
 export const TextEditor = () => {
     const { question_id } = useParams();
     const user = useSelector(selectUser);
-    console.log("user:", user);
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [answerState, setAnswerState] = useState(EditorState.createEmpty());
-    console.log("answerState:", answerState);
 
     const onEditorStateChange = (editorState) => {
         setEditorState(editorState);
@@ -59,12 +57,10 @@ export const TextEditor = () => {
             xhr.send(data);
             xhr.addEventListener("load", () => {
                 const response = JSON.parse(xhr.responseText);
-                console.log(response);
                 resolve(response);
             });
             xhr.addEventListener("error", () => {
                 const error = JSON.parse(xhr.responseText);
-                console.log(error);
                 reject(error);
             });
         });
@@ -72,7 +68,6 @@ export const TextEditor = () => {
 
     // const { editorState, answerState } = this.state;
 
-    console.log("Answer", answerState);
 
     return (
         <div className="editor-container">

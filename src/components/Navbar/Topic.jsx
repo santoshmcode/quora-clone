@@ -16,18 +16,14 @@ export const Topic = ({ Input,handleClose, handleQuestion,setQue}) => {
         setValue("")
   }
   const handleDelete = (e) => {
-    console.log(e)
     let updatedtopic = topic.filter((item) => item.id !== e);
-    console.log(updatedtopic)
         setTopic(updatedtopic)
     
   }
      React.useEffect(() => {
     const listener = event => {
       if (event.code === "Enter" || event.code === "NumpadEnter") {
-        console.log("Enter key was pressed. Run your function.");
         event.preventDefault();
-        // callMyFunction();
         const data={value: value,id:uuid()}
         setTopic([data, ...topic]);
         setValue("")

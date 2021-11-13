@@ -37,12 +37,12 @@ export default class TextEditor extends Component {
                 xhr.send(data);
                 xhr.addEventListener("load", () => {
                     const response = JSON.parse(xhr.responseText);
-                    console.log(response);
+                    // console.log(response);
                     resolve(response);
                 });
                 xhr.addEventListener("error", () => {
                     const error = JSON.parse(xhr.responseText);
-                    console.log(error);
+                    // console.log(error);
                     reject(error);
                 });
             });
@@ -50,7 +50,7 @@ export default class TextEditor extends Component {
 
         const { editorState, answerState } = this.state;
 
-        console.log(answerState);
+        // console.log(answerState);
         return (
             <div>
                 <div className="edit-author-credentials">

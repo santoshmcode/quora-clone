@@ -23,7 +23,6 @@ export const IconGrp = ({
     const [countUpvotes, setCountUpVotes] = useState(
         vote_count === before ? vote_count : before
     );
-    console.log("countUpvotes:", countUpvotes);
     const handleClick = async () => {
         setFlag(true);
         upvotes ? setCountUpVotes((e) => e - 1) : setCountUpVotes((e) => e + 1);
@@ -31,11 +30,7 @@ export const IconGrp = ({
         setBefore(countUpvotes);
     };
 
-    // useEffect(() => {
-    //     getSingleData(`questions/${id}/answers`, answerKey).then((res) => {
-    //         setBefore(res.data().up_votes);
-    //     });
-    // }, [countUpvotes]);
+ 
 
     useEffect(() => {
         if (flag) {

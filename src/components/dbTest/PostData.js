@@ -11,16 +11,7 @@ export const PostData = () => {
     const [tag, setTag] = React.useState([]);
     const [allQuestions, setAllQuestions] = React.useState([]);
 
-    // const dbRef = db.collection("questions");
-    // const handleSubmit = async () => {
-    //     const res = await dbRef.doc().set({
-    //         question: question,
-    //         tag: tag,
-    //         createdAt: Date.now(),
-    //         answers: [],
-    //     });
-    //     console.log("res:", res);
-    // };
+
 
     const handleSubmit = () => {
         postData("questions/", {
@@ -47,28 +38,11 @@ export const PostData = () => {
             );
         });
 
-        // return cleanup function
+       
         return () => data();
     }, []);
 
-    // const fun = async () => {
-    //     const questions = getData("questions");
-    //     // const questions = await res();
-    //     console.log("questions:", questions());
-
-    //     return await questions();
-    // };
-    // useEffect(() => {
-    //     fun();
-    //     // console.log("fun():", fun());
-    //     // const questions = getData("questions");
-    //     // console.log("questions:", questions);
-
-    //     // setAllQuestions(questions.sort((a, b) => b.createdAt - a.createdAt));
-
-    //     // return cleanup function
-    //     // return () => data();
-    // }, []);
+    
 
     const handleDelete = (id) => {
         const dbRef = db.collection("questions");

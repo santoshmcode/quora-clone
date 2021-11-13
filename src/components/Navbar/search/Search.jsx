@@ -24,36 +24,27 @@ export const Search = ({ search, handleOpen,setSearch }) => {
     };
 
     const getData = (ref) => {
-        console.log("hello");
         let dataArray = [];
         let dbRef = db.collection(ref);
 
-        // dbRef= dbRef.startAt("react").endAt("react" + "\uf8ff");
-        // console.log("dbRef:", dbRef);
+      
         dbRef.onSnapshot((querySnapshot) => {
-            // console.log("querySnapshot:", querySnapshot);
             dataArray = [];
             querySnapshot.forEach((doc) => {
-                console.log(doc);
                 let id = doc.id;
-                console.log(id, "id");
                 dataArray.push({
                     ...doc.data(), //spread operator
                     id,
                 });
 
-                console.log(dataArray, "dataArray");
                 setsearchData(dataArray);
             });
         });
 
-        console.log(dataArray, "1");
     };
 
     const Search = () => {
-        console.log("Final task", search);
         let dummy = search.trim().split(" ");
-        console.log(dummy);
         let returned_function = throttler();
         ///call back fn
         returned_function(1000, () => {
@@ -62,9 +53,7 @@ export const Search = ({ search, handleOpen,setSearch }) => {
                 let question = e.question;
                 return { id, question };
             });
-            console.log(data);
             let results = data.filter((e) => {
-                console.log(e.question);
 
                 if (dummy.length === 1 && dummy[0] === "") return false;
 
@@ -113,8 +102,6 @@ export const Search = ({ search, handleOpen,setSearch }) => {
                         : 0;
                 return false;
             });
-            console.log(dummy, "dummy");
-            console.log(results, "result");
             setResult(results);
         });
     };

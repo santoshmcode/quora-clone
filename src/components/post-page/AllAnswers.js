@@ -10,7 +10,6 @@ dayjs.extend(relativeTime);
 
 const AllAnswers = ({ handleSetAnswerCount, questionId: id }) => {
     const { question_id: questionId } = useParams();
-    console.log("questionId:", questionId);
     const [unhide, setUnhide] = useState(false);
     const [ID, setID] = useState("");
     const handleUnhide = (id) => {
@@ -18,8 +17,6 @@ const AllAnswers = ({ handleSetAnswerCount, questionId: id }) => {
         setUnhide(true);
     };
     const [answer, setAnswer] = useState([]);
-    console.log("answer:", answer);
-    // const [answerLength, setAnswerLength] = useState(0);
 
     useEffect(() => {
         handleSetAnswerCount(answer.length);
