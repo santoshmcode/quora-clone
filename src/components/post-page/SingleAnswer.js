@@ -6,7 +6,7 @@ import styled from "styled-components";
 import dayjs from "dayjs";
 import { IconGrp } from "../../components/HomeContents/IconGrp";
 
-const SingleAnswer = ({ answer }) => {
+const SingleAnswer = ({ answer, id }) => {
     console.log("answer:", answer);
     const [more, setMore] = useState(true);
 
@@ -51,7 +51,9 @@ const SingleAnswer = ({ answer }) => {
                 handleComments={handleComments}
                 toogle={commentToogle}
                 showComments={showComments}
-                id={answer.key}
+                id={id}
+                answerKey={answer.key}
+                vote_count={answer.up_votes}
             />
         </div>
     );

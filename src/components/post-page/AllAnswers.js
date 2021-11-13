@@ -8,7 +8,7 @@ import SingleAnswer from "./SingleAnswer";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
-const AllAnswers = ({ handleSetAnswerCount }) => {
+const AllAnswers = ({ handleSetAnswerCount, questionId: id }) => {
     const { question_id: questionId } = useParams();
     console.log("questionId:", questionId);
     const [unhide, setUnhide] = useState(false);
@@ -70,7 +70,7 @@ const AllAnswers = ({ handleSetAnswerCount }) => {
                                 </div>
                             </div>
                             <>
-                                <SingleAnswer answer={answer} />
+                                <SingleAnswer answer={answer} id={id} />
                             </>
                         </div>
                     );

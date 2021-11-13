@@ -27,7 +27,9 @@ export const PostPage = () => {
     const [editDis, setEditDis] = useState("none");
     const [check, setCheck] = useState(true);
     const [question, setQuestion] = useState({});
+    console.log("question:", question);
     const [answerCount, setAnswerCount] = useState(0);
+    const [questionId, setQuestionId] = useState();
 
     useEffect(() => {
         db.collection("questions")
@@ -38,6 +40,7 @@ export const PostPage = () => {
                     console.log("No such document!");
                 } else {
                     setQuestion(doc.data());
+                    setQuestionId(doc.id);
                     console.log("Document data:", doc.data());
                 }
             })
@@ -312,7 +315,10 @@ export const PostPage = () => {
                     </div>
 
                     <div className="left-answer-no">{answerCount} Answers</div>
-                    <AllAnswers handleSetAnswerCount={handleSetAnswerCount} />
+                    <AllAnswers
+                        questionId={questionId}
+                        handleSetAnswerCount={handleSetAnswerCount}
+                    />
                 </div>
                 <div className="outer-right">
                     <Sidebar />
