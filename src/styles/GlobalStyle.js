@@ -29,6 +29,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow-y: scroll;
     }
 
+
     p{
         cursor: default;
     }

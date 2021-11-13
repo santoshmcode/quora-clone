@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router";
 import { Home, Login } from "../components";
@@ -19,6 +19,7 @@ import { PostData } from "../components/dbTest/PostData";
 import { TextEditor } from "../components/post-page/Editor";
 import { Error } from "../components/error/Error.jsx";
 import Unanswered from "../components/unanswered/Unanswered";
+
 const Router = () => {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const Router = () => {
                 {user ? (
                     <>
                         <Navbar />
-                        <Home />
+                        <Home />}
                     </>
                 ) : (
                     <>
