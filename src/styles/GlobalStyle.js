@@ -26,6 +26,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body{
         overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     p{

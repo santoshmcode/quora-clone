@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
 import styled from "styled-components";
-import { postData } from "../../utils/api/postData";
+import { postData, updateData } from "../../utils/api/postData";
 
 import "./Editor.css";
 
@@ -31,7 +31,7 @@ export const TextEditor = () => {
         postData(`questions/${question_id}/answers`, {
             answer: answerState,
             timestamp: Date.now(),
-            up_votes: 0,
+            up_votes: Math.floor(Math.random() * 10),
             down_votes: 0,
             user_img:
                 user.photoURL ||
@@ -40,6 +40,11 @@ export const TextEditor = () => {
             user_email: user.email,
             image: [],
         });
+
+        updateData(`questions`, question_id, {
+            isAnswered: true,
+        });
+
         setEditorState(null);
         setAnswerState(null);
     };
@@ -114,8 +119,8 @@ export const TextEditor = () => {
                         inputAccept:
                             "image/gif,image/jpeg,image/jpg,image/png,image/svg",
                     },
-                }} 
-                style={{paddingLeft: '10px'}}
+                }}
+                style={{ paddingLeft: "10px" }}
             />
 
             <div className="button-edit">
