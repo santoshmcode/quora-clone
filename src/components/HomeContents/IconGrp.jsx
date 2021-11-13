@@ -6,18 +6,45 @@ import { RiShareForwardLine } from "react-icons/ri";
 import { MyComment } from "./MyComment";
 import { GoArrowUp } from "react-icons/go";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/userSlice";
-export const IconGrp = ({ handleComments, id, showComments, toogle }) => {
+import { useEffect } from "react";
+import db from "../../config/firebase.config";
+import { getSingleData, updateData } from "../../utils/api/postData";
+export const IconGrp = ({
+    handleComments,
+    id,
+    showComments,
+    toogle,
+    answerKey,
+    vote_count,
+}) => {
+    const [before, setBefore] = useState(vote_count);
+    const [flag, setFlag] = useState(false);
     const [upvotes, setUpvotes] = useState(false);
-    const [countUpvotes, setCountUpVotes] = useState(12);
-    const handleClick = () => {
+    const [countUpvotes, setCountUpVotes] = useState(
+        vote_count === before ? vote_count : before
+    );
+    console.log("countUpvotes:", countUpvotes);
+    const handleClick = async () => {
+        setFlag(true);
+        upvotes ? setCountUpVotes((e) => e - 1) : setCountUpVotes((e) => e + 1);
         setUpvotes(!upvotes);
-        upvotes
-            ? setCountUpVotes((pre) => pre - 1)
-            : setCountUpVotes((prev) => prev + 1);
+        setBefore(countUpvotes);
     };
 
+    useEffect(() => {
+        getSingleData(`questions/${id}/answers`, answerKey).then((res) => {
+            setBefore(res.data().up_votes);
+        });
+    }, [countUpvotes]);
+
+    useEffect(() => {
+        if (flag) {
+            updateData(`questions/${id}/answers`, answerKey, {
+                up_votes: countUpvotes,
+            });
+            setFlag(false);
+        }
+    }, [countUpvotes]);
     return (
         <>
             <Icongroup>

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import db from "../../config/firebase.config";
 import { Markup } from "interweave";
 import styled from "styled-components";
+import { IconGrp } from "./IconGrp";
 
-const Answers = ({ questionId }) => {
+const Answers = ({ questionId, handleComments, id, showComments, toogle }) => {
     console.log("questionId:", questionId);
     const [unhide, setUnhide] = useState(false);
     const [ID, setID] = useState("");
@@ -72,6 +73,14 @@ const Answers = ({ questionId }) => {
                                     )}
                                 </p>
                             </AnswerContainer>
+                            <IconGrp
+                                handleComments={handleComments}
+                                toogle={toogle}
+                                showComments={showComments}
+                                id={id}
+                                answerKey={answer[0].key}
+                                vote_count={answer[0].up_votes}
+                            />
                         </>
                     )}
                     {/* <p
