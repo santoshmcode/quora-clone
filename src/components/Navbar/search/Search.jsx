@@ -138,7 +138,7 @@ export const Search = ({ search, handleOpen,setSearch }) => {
                                 </Link>
                             )
                     )}
-                    <div className="addQuestion" onClick={handleOpen}>
+                    <div className="addQuestion" onClick={() => { handleOpen(); setSearch("")}}>
                         <AiOutlinePlusCircle className="plus" />
                         <p>Add New Question</p>
                     </div>
