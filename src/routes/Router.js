@@ -103,8 +103,8 @@ const Router = () => {
                     <Redirect to="/login" />
                 )}
             </Route>
-            <Route>
-                <Navbar />
+            <Route path="*">
+                {/* <Navbar /> */}
                 <Error />
             </Route>
         </Switch>
